@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RJP Travels – Premium Vehicles & Fleet Hire</title>
+  <meta name="description" content="Explore and book RJP Travels luxury sedans, 7-seater family MPVs, commercial cargo trucks, and agricultural tractors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="navbar" class="navbar">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-badge">RJP</div>
+      <div class="brand-text">
+        <span class="brand-title">RJP GROUPS</span>
+        <span class="brand-subtitle">CONSTRUCTION • TRAVELS • CSC</span>
+      </div>
+    </a>
+
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="quote.html" class="nav-link">Construction</a></li>
+      <li><a href="vehicles.html" class="nav-link active">Travels</a></li>
+      <li><a href="csc.html" class="nav-link">CSC Center</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Page Main Section -->
+  <main style="padding-top: 8rem; padding-bottom: 6rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-green">PREMIUM VEHICLES & FLEET HIRE</span>
+        <h1 class="section-title">Our Travels & <span style="color: var(--accent-green);">Transport Fleet</span></h1>
+        <p class="section-subtitle">Providing luxury sedans, 7-seater family cruisers, commercial freight trucks, and heavy tractors.</p>
+      </div>
+
+      <!-- Filter Pills Row -->
+      <div class="filter-pills-row">
+        <button class="pill-btn active-green" data-vehicle-tab="all">All Vehicles (4)</button>
+        <button class="pill-btn" data-vehicle-tab="sedan">Luxury Sedans</button>
+        <button class="pill-btn" data-vehicle-tab="mpv">Family MPV</button>
+        <button class="pill-btn" data-vehicle-tab="truck">Commercial Truck</button>
+        <button class="pill-btn" data-vehicle-tab="tractor">Heavy Tractor</button>
+      </div>
+
+      <!-- Vehicles Grid -->
+      <div class="vehicles-grid">
+        <div class="vehicle-card" data-category="sedan">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">LUXURY SEDAN</span>
+            <img src="assets/vehicles/sedan.jpg?v=3" alt="Swift Dzire White Sedan">
+          </div>
+          <div class="vehicle-content">
+            <h2 class="vehicle-name">Swift Dzire White Sedan</h2>
+            <p class="vehicle-specs">🚘 5-Seater Sedan | Climate Control AC | Outstation & City Cab Service | Smooth Suspension</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹14 / km</span>
+                <span class="price-unit">PER DISTANCE</span>
+              </div>
+              <a href="contact.html" class="btn-book-green">Book Now →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-card" data-category="mpv">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">FAMILY MPV</span>
+            <img src="assets/vehicles/mpv.jpg?v=3" alt="Maruti Ertiga White MPV">
+          </div>
+          <div class="vehicle-content">
+            <h2 class="vehicle-name">Maruti Ertiga White MPV</h2>
+            <p class="vehicle-specs">👥 7-Seater Family Cruiser | Dual Rear AC | Push-Button Start | Extra Boot Space for Tours</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹18 / km</span>
+                <span class="price-unit">PER DISTANCE</span>
+              </div>
+              <a href="contact.html" class="btn-book-green">Book Now →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-card" data-category="truck">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">COMMERCIAL TRUCK</span>
+            <img src="assets/vehicles/truck.jpg?v=3" alt="Commercial Mini Goods Truck">
+          </div>
+          <div class="vehicle-content">
+            <h2 class="vehicle-name">Commercial Mini Goods Truck</h2>
+            <p class="vehicle-specs">📦 1.5 Ton Freight Payload | Enclosed Protective Cage | Express Cargo & Relocation Transport</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹25 / km</span>
+                <span class="price-unit">PER FREIGHT TRIP</span>
+              </div>
+              <a href="contact.html" class="btn-book-green">Book Freight →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-card" data-category="tractor">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">HEAVY TRACTOR</span>
+            <img src="assets/vehicles/tractor.jpg?v=3" alt="Agricultural Tractor">
+          </div>
+          <div class="vehicle-content">
+            <h2 class="vehicle-name">Agricultural Tractor</h2>
+            <p class="vehicle-specs">🚜 45 HP Heavy Duty Tractor | Multi-crop Tillage | Soil Preparation & Trailer Hauling</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹800 / hr</span>
+                <span class="price-unit">RENTAL RATE</span>
+              </div>
+              <a href="contact.html" class="btn-book-green">Rent Tractor →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="brand-logo" style="justify-content: center; margin-bottom: 1rem;">
+        <div class="brand-badge">RJP</div>
+        <div class="brand-text">
+          <span class="brand-title">RJP GROUPS</span>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">Construction Engineering • Luxury Travels Fleet • CSC Digital Center</p>
+      <div>© 2026 RJP Groups. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom Navigation Bar -->
+  <div class="floating-bottom-nav">
+    <a href="quote.html" class="floating-nav-item">🏗️ Build Quote</a>
+    <a href="vehicles.html" class="floating-nav-item active">🚗 Travels</a>
+    <a href="csc.html" class="floating-nav-item">📦 CSC Services</a>
+    <a href="contact.html" class="floating-nav-item">📞 Contact</a>
+  </div>
+
+  <!-- WhatsApp Floating Chat Button -->
+  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">💬</a>
+
+  <script src="main.js"></script>
+</body>
+</html>

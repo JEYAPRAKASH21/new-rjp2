@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RJP Construction – Get a Free Quote</title>
+  <meta name="description" content="Request a free construction estimate from RJP Construction for residential, commercial, industrial, and turnkey building projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="navbar" class="navbar">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-badge">RJP</div>
+      <div class="brand-text">
+        <span class="brand-title">RJP GROUPS</span>
+        <span class="brand-subtitle">CONSTRUCTION • TRAVELS • CSC</span>
+      </div>
+    </a>
+
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="quote.html" class="nav-link active">Construction</a></li>
+      <li><a href="vehicles.html" class="nav-link">Travels</a></li>
+      <li><a href="csc.html" class="nav-link">CSC Center</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Page Main Section -->
+  <main style="padding-top: 8rem; padding-bottom: 6rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-gold">BUILDING & INFRASTRUCTURE</span>
+        <h1 class="section-title">Get Your Free <span style="color: var(--accent-gold);">Construction Estimate</span></h1>
+        <p class="section-subtitle">Tell us about your plot size, project vision, timeline, and design preferences. Our civil engineering team will provide a detailed breakdown.</p>
+      </div>
+
+      <div class="dark-form-card">
+        <form id="construction-quote-form">
+          <div class="form-grid-2">
+            <div class="form-group-dark">
+              <label for="full-name">Full Name</label>
+              <input type="text" id="full-name" class="form-input-dark" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group-dark">
+              <label for="mobile-number">Mobile / WhatsApp Number</label>
+              <input type="tel" id="mobile-number" class="form-input-dark" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group-dark">
+              <label for="project-category">Project Category</label>
+              <select id="project-category" class="form-input-dark" required>
+                <option value="" disabled selected>Select Project Type</option>
+                <option value="residential">Residential Villa / Independent House</option>
+                <option value="commercial">Commercial Complex & Office Tower</option>
+                <option value="industrial">Industrial Factory / Warehouse Shed</option>
+                <option value="roadways">Road & Concrete Paving</option>
+                <option value="renovation">Building Renovation & Turnkey Interior</option>
+              </select>
+            </div>
+
+            <div class="form-group-dark">
+              <label for="budget-range">Estimated Budget Range</label>
+              <select id="budget-range" class="form-input-dark" required>
+                <option value="" disabled selected>Select Budget Range</option>
+                <option value="10-25">₹10 Lakhs - ₹25 Lakhs</option>
+                <option value="25-50">₹25 Lakhs - ₹50 Lakhs</option>
+                <option value="50-100">₹50 Lakhs - ₹1 Crore</option>
+                <option value="100+">₹1 Crore+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="site-location">Property / Site Location</label>
+            <input type="text" id="site-location" class="form-input-dark" placeholder="City, Area or Site Address" required>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="project-requirements">Project Requirements / Details</label>
+            <textarea id="project-requirements" class="form-input-dark" style="min-height: 120px; resize: vertical;" placeholder="Tell us about your plot size, number of floors, timeline, or design preferences..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold-submit">Request Free Construction Quote 🏗️</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="brand-logo" style="justify-content: center; margin-bottom: 1rem;">
+        <div class="brand-badge">RJP</div>
+        <div class="brand-text">
+          <span class="brand-title">RJP GROUPS</span>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">Construction Engineering • Luxury Travels Fleet • CSC Digital Center</p>
+      <div>© 2026 RJP Groups. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom Navigation Bar -->
+  <div class="floating-bottom-nav">
+    <a href="quote.html" class="floating-nav-item active">🏗️ Build Quote</a>
+    <a href="vehicles.html" class="floating-nav-item">🚗 Travels</a>
+    <a href="csc.html" class="floating-nav-item">📦 CSC Services</a>
+    <a href="contact.html" class="floating-nav-item">📞 Contact</a>
+  </div>
+
+  <!-- WhatsApp Floating Chat Button -->
+  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- Toast Notification -->
+  <div class="toast-container">
+    <div id="toast" class="toast">
+      <span>✓</span>
+      <span id="toast-message">Submission received successfully!</span>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

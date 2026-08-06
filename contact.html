@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact RJP Group – Get In Touch</title>
+  <meta name="description" content="Contact RJP Group for Construction estimates, Travels vehicle bookings, and CSC Center document processing in Ramanathapuram.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="navbar" class="navbar">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-badge">RJP</div>
+      <div class="brand-text">
+        <span class="brand-title">RJP GROUPS</span>
+        <span class="brand-subtitle">CONSTRUCTION • TRAVELS • CSC</span>
+      </div>
+    </a>
+
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="quote.html" class="nav-link">Construction</a></li>
+      <li><a href="vehicles.html" class="nav-link">Travels</a></li>
+      <li><a href="csc.html" class="nav-link">CSC Center</a></li>
+      <li><a href="contact.html" class="nav-link active">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Page Main Section -->
+  <main style="padding-top: 8rem; padding-bottom: 6rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-gold">LET'S CONNECT</span>
+        <h1 class="section-title">Get In Touch</h1>
+        <p class="section-subtitle">Reach out to us for any of our services. We'd love to hear from you!</p>
+      </div>
+
+      <!-- 3 Info Cards -->
+      <div class="contact-info-cards">
+        <div class="info-card-dark">
+          <div class="info-card-icon">📞</div>
+          <h2 class="info-card-title">Call Us</h2>
+          <div class="info-card-text">+91 7358656647</div>
+        </div>
+
+        <div class="info-card-dark">
+          <div class="info-card-icon">✉️</div>
+          <h2 class="info-card-title">Email Us</h2>
+          <div class="info-card-text">jeyaprakashp342@gmail.com</div>
+        </div>
+
+        <div class="info-card-dark">
+          <div class="info-card-icon">📍</div>
+          <h2 class="info-card-title">Visit Us</h2>
+          <div class="info-card-text">Madasamy Kovil Street, Therbogi, Ramanathapuram</div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="dark-form-card">
+        <form id="contact-page-form">
+          <div class="form-grid-2">
+            <div class="form-group-dark">
+              <label for="contact-user-name">Your Name</label>
+              <input type="text" id="contact-user-name" class="form-input-dark" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group-dark">
+              <label for="contact-user-phone">Phone Number</label>
+              <input type="tel" id="contact-user-phone" class="form-input-dark" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="contact-user-service">Which Service Are You Interested In?</label>
+            <select id="contact-user-service" class="form-input-dark" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="construction">🏗️ RJP Construction Estimate</option>
+              <option value="travels">🚗 RJP Travels Fleet Booking</option>
+              <option value="csc">📦 RJP CSC Government & Document Services</option>
+              <option value="general">✨ General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="contact-user-message">Message</label>
+            <textarea id="contact-user-message" class="form-input-dark" style="min-height: 120px; resize: vertical;" placeholder="Tell us about your requirement..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold-submit">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="brand-logo" style="justify-content: center; margin-bottom: 1rem;">
+        <div class="brand-badge">RJP</div>
+        <div class="brand-text">
+          <span class="brand-title">RJP GROUPS</span>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">Construction Engineering • Luxury Travels Fleet • CSC Digital Center</p>
+      <div>© 2026 RJP Groups. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom Navigation Bar -->
+  <div class="floating-bottom-nav">
+    <a href="quote.html" class="floating-nav-item">🏗️ Build Quote</a>
+    <a href="vehicles.html" class="floating-nav-item">🚗 Travels</a>
+    <a href="csc.html" class="floating-nav-item">📦 CSC Services</a>
+    <a href="contact.html" class="floating-nav-item active">📞 Contact</a>
+  </div>
+
+  <!-- WhatsApp Floating Chat Button -->
+  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- Toast Notification -->
+  <div class="toast-container">
+    <div id="toast" class="toast">
+      <span>✓</span>
+      <span id="toast-message">Message submitted successfully!</span>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

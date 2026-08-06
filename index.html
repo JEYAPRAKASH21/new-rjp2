@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RJP GROUPS | Construction, Travels & CSC Center</title>
+  <meta name="description" content="RJP Groups is a premier multi-sector conglomerate excelling in Construction, Luxury Travels & Fleet Services, and CSC Digital Government Services.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="loader-logo">RJP GROUPS</div>
+    <div class="loader-bar-container">
+      <div id="loader-bar" class="loader-bar"></div>
+    </div>
+    <div id="loader-text" class="loader-text">Loading RJP Experience... 0%</div>
+  </div>
+
+  <!-- Site Navigation Bar (Auto-Hides on Scroll) -->
+  <header id="navbar" class="navbar">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-badge">RJP</div>
+      <div class="brand-text">
+        <span class="brand-title">RJP GROUPS</span>
+        <span class="brand-subtitle">CONSTRUCTION • TRAVELS • CSC</span>
+      </div>
+    </a>
+
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="#divisions-overview" class="nav-link">Divisions</a></li>
+      <li><a class="nav-link" data-open-modal="quote">Construction</a></li>
+      <li><a class="nav-link" data-open-modal="vehicles">Travels</a></li>
+      <li><a class="nav-link" data-open-modal="csc">CSC Center</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero Section (300-Frame Scroll Canvas Scrubber) -->
+  <div id="hero-scroll-container" class="hero-scroll-container">
+    <div id="sticky-wrapper" class="sticky-wrapper">
+      <canvas id="scroll-canvas"></canvas>
+      <div class="hero-vignette"></div>
+
+      <!-- Card 1: Construction -->
+      <div id="card-construction" class="hero-overlay-card pos-left">
+        <div class="card-tag tag-construction">🏗️ Construction Division</div>
+        <h1 class="card-title">Engineering Milestones, Constructing Futures</h1>
+        <p class="card-desc">From residential homes to commercial complexes, RJP Construction delivers uncompromised quality.</p>
+        <div class="card-actions">
+          <button class="btn-cta" data-open-modal="quote">Calculate Estimate 🏗️</button>
+        </div>
+      </div>
+
+      <!-- Card 2: Travels -->
+      <div id="card-travels" class="hero-overlay-card pos-right">
+        <div class="card-tag tag-travels">🚗 Travels & Fleet Services</div>
+        <h2 class="card-title">Comfortable, Reliable & Premium Journeys</h2>
+        <p class="card-desc">Experience seamless luxury travel with RJP Travels. Providing modern fleet rentals, outstation trips, mini trucks, and heavy tractors.</p>
+        <div class="card-actions">
+          <button class="btn-cta" data-open-modal="vehicles" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff;">Explore Fleet 🚗</button>
+        </div>
+      </div>
+
+      <!-- Card 3: CSC Center -->
+      <div id="card-csc" class="hero-overlay-card pos-left">
+        <div class="card-tag tag-csc">🏢 CSC Digital Center</div>
+        <h2 class="card-title">Empowering Citizens through Digital Services</h2>
+        <p class="card-desc">Your trusted one-stop Common Services Centre. We streamline e-governance documents, Aadhaar & PAN processing, and utility payments.</p>
+        <div class="card-actions">
+          <button class="btn-cta" data-open-modal="csc" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff;">View Document Checklist 📦</button>
+        </div>
+      </div>
+
+      <!-- Scroll Hint Indicator -->
+      <div id="scroll-indicator" class="scroll-indicator">
+        <div class="mouse-icon">
+          <div class="wheel"></div>
+        </div>
+        <span>Scroll to Explore</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST-HERO VERTICAL ONE-AFTER-ANOTHER DIVISION SCROLL SECTIONS -->
+  <section id="divisions-overview">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 3rem;">
+        <span class="section-badge badge-gold">THREE PILLARS OF RJP GROUPS</span>
+      </div>
+
+      <!-- Division 1: Construction (Scroll Step 1: 3D Left Flip & HD Banner) -->
+      <div class="division-scroll-block">
+        <div class="rich-division-card theme-gold anim-block-1">
+          <div class="rich-card-banner">
+            <img src="assets/construction.jpg" alt="RJP Construction Site and Civil Engineering">
+            <div class="banner-overlay-vignette"></div>
+            <span class="banner-badge-pill pill-gold">🏗️ CIVIL & ARCHITECTURAL ENGINEERING</span>
+          </div>
+          <div class="rich-card-body">
+            <h3 class="rich-card-title">RJP Construction</h3>
+            <div class="rich-feature-chips">
+              <span class="chip-item">🏠 Independent Villas</span>
+              <span class="chip-item">🏢 Commercial Towers</span>
+              <span class="chip-item">🏭 Turnkey Projects</span>
+            </div>
+            <button class="btn-rich-action" data-open-modal="quote">Calculate Estimate 🏗️</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Division 2: Travels (Scroll Step 2: Spring Zoom from Center & Fleet Banner) -->
+      <div class="division-scroll-block">
+        <div class="rich-division-card theme-green anim-block-2">
+          <div class="rich-card-banner">
+            <img src="assets/vehicles/sedan.jpg" alt="RJP Travels Luxury Fleet">
+            <div class="banner-overlay-vignette"></div>
+            <span class="banner-badge-pill pill-green">🚗 LUXURY FLEET & TRANSPORTATION</span>
+          </div>
+          <div class="rich-card-body">
+            <h3 class="rich-card-title">RJP Travels & Fleet</h3>
+            <div class="rich-feature-chips">
+              <span class="chip-item">🚘 Swift Sedans (₹14/km)</span>
+              <span class="chip-item">👥 Ertiga 7-Seater (₹18/km)</span>
+              <span class="chip-item">📦 Mini Freight (₹25/km)</span>
+            </div>
+            <button class="btn-rich-action" data-open-modal="vehicles">View Fleet & Book 🚗</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Division 3: CSC Center (Scroll Step 3: 3D Right Flip & Governance Banner) -->
+      <div class="division-scroll-block">
+        <div class="rich-division-card theme-purple anim-block-3">
+          <div class="rich-card-banner">
+            <img src="assets/csc.jpg" alt="RJP CSC Digital Government Portal">
+            <div class="banner-overlay-vignette"></div>
+            <span class="banner-badge-pill pill-purple">🏢 CITIZEN E-GOVERNANCE CENTER</span>
+          </div>
+          <div class="rich-card-body">
+            <h3 class="rich-card-title">RJP CSC Digital Center</h3>
+            <div class="rich-feature-chips">
+              <span class="chip-item">💳 Aadhaar & PVC Cards</span>
+              <span class="chip-item">📜 Revenue Certificates</span>
+              <span class="chip-item">🏦 AePS Fingerprint Cash</span>
+            </div>
+            <button class="btn-rich-action" data-open-modal="csc">Document Checklists 📦</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animated Group Stats Ticker -->
+      <div class="stats-ticker-container">
+        <div class="ticker-box">
+          <div class="ticker-number">15+</div>
+          <div class="ticker-label">Years Excellence</div>
+        </div>
+        <div class="ticker-box">
+          <div class="ticker-number" style="color: var(--accent-gold);">500+</div>
+          <div class="ticker-label">Projects Built</div>
+        </div>
+        <div class="ticker-box">
+          <div class="ticker-number" style="color: var(--accent-green);">50K+</div>
+          <div class="ticker-label">Happy Travelers</div>
+        </div>
+        <div class="ticker-box">
+          <div class="ticker-number" style="color: var(--accent-purple);">100K+</div>
+          <div class="ticker-label">Citizens Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN PAGE INLINE SECTION: CONTACT DESK WITH LIVE SCROLL ANIMATIONS -->
+  <section id="contact" class="bg-dark-secondary">
+    <div class="container">
+      <div class="section-header contact-anim-header">
+        <span class="section-badge badge-gold">LET'S CONNECT</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Reach out to us for any of our services. We'd love to hear from you!</p>
+      </div>
+
+      <!-- 3 Staggered Animated Info Cards -->
+      <div class="contact-info-cards">
+        <div class="info-card-dark contact-card-anim-1">
+          <div class="info-card-icon">📞</div>
+          <h3 class="info-card-title">Call Us</h3>
+          <div class="info-card-text">+91 7358656647</div>
+        </div>
+
+        <div class="info-card-dark contact-card-anim-2">
+          <div class="info-card-icon">✉️</div>
+          <h3 class="info-card-title">Email Us</h3>
+          <div class="info-card-text">jeyaprakashp342@gmail.com</div>
+        </div>
+
+        <div class="info-card-dark contact-card-anim-3">
+          <div class="info-card-icon">📍</div>
+          <h3 class="info-card-title">Visit Us</h3>
+          <div class="info-card-text">Madasamy Kovil Street, Therbogi, Ramanathapuram</div>
+        </div>
+      </div>
+
+      <!-- Animated Contact Form -->
+      <div class="dark-form-card contact-form-anim">
+        <form id="contact-form">
+          <div class="form-grid-2">
+            <div class="form-group-dark">
+              <label for="user-name">Your Name</label>
+              <input type="text" id="user-name" class="form-input-dark" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group-dark">
+              <label for="user-phone">Phone Number</label>
+              <input type="tel" id="user-phone" class="form-input-dark" placeholder="+91 XXXXX XXXXX" required>
+            </div>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="user-service">Which Service Are You Interested In?</label>
+            <select id="user-service" class="form-input-dark" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="construction">🏗️ RJP Construction Estimate</option>
+              <option value="travels">🚗 RJP Travels Fleet Booking</option>
+              <option value="csc">📦 RJP CSC Government & Document Services</option>
+              <option value="general">✨ General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="user-message">Message</label>
+            <textarea id="user-message" class="form-input-dark" style="min-height: 120px; resize: vertical;" placeholder="Tell us about your requirements..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-gold-submit">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE SPRINGY GLASS POPUP MODAL OVERLAYS
+       ========================================================================== -->
+
+  <!-- Modal 1: Construction Estimate Calculator Popup -->
+  <div id="modal-quote" class="modal-overlay">
+    <div class="modal-container">
+      <button class="modal-close-btn" data-close-modal aria-label="Close popup">✕</button>
+      <div class="section-header" style="margin-bottom: 2rem; text-align: left;">
+        <span class="section-badge badge-gold">RJP CONSTRUCTION</span>
+        <h2 class="section-title" style="font-size: 2.2rem;">Get Your Free Construction Estimate</h2>
+        <p class="section-subtitle">Tell us about your plot size, project vision, timeline, and design preferences. Our civil engineering team will provide a detailed breakdown.</p>
+      </div>
+
+      <form id="modal-construction-form">
+        <div class="form-grid-2">
+          <div class="form-group-dark">
+            <label for="m-full-name">Full Name</label>
+            <input type="text" id="m-full-name" class="form-input-dark" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="m-mobile-number">Mobile / WhatsApp Number</label>
+            <input type="tel" id="m-mobile-number" class="form-input-dark" placeholder="+91 XXXXX XXXXX" required>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group-dark">
+            <label for="m-project-category">Project Category</label>
+            <select id="m-project-category" class="form-input-dark" required>
+              <option value="" disabled selected>Select Project Type</option>
+              <option value="residential">Residential Villa / Independent House</option>
+              <option value="commercial">Commercial Complex & Office Tower</option>
+              <option value="industrial">Industrial Factory / Warehouse Shed</option>
+              <option value="roadways">Road & Concrete Paving</option>
+              <option value="renovation">Building Renovation & Turnkey Interior</option>
+            </select>
+          </div>
+
+          <div class="form-group-dark">
+            <label for="m-budget-range">Estimated Budget Range</label>
+            <select id="m-budget-range" class="form-input-dark" required>
+              <option value="" disabled selected>Select Budget Range</option>
+              <option value="10-25">₹10 Lakhs - ₹25 Lakhs</option>
+              <option value="25-50">₹25 Lakhs - ₹50 Lakhs</option>
+              <option value="50-100">₹50 Lakhs - ₹1 Crore</option>
+              <option value="100+">₹1 Crore+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group-dark">
+          <label for="m-site-location">Property / Site Location</label>
+          <input type="text" id="m-site-location" class="form-input-dark" placeholder="City, Area or Site Address" required>
+        </div>
+
+        <div class="form-group-dark">
+          <label for="m-project-requirements">Project Requirements / Details</label>
+          <textarea id="m-project-requirements" class="form-input-dark" style="min-height: 100px; resize: vertical;" placeholder="Tell us about plot size, floors, design preferences..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-gold-submit">Request Free Construction Quote 🏗️</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Travels Fleet Showcase Popup -->
+  <div id="modal-vehicles" class="modal-overlay">
+    <div class="modal-container" style="max-width: 1000px;">
+      <button class="modal-close-btn" data-close-modal aria-label="Close popup">✕</button>
+      <div class="section-header" style="margin-bottom: 2rem; text-align: left;">
+        <span class="section-badge badge-green">RJP TRAVELS FLEET</span>
+        <h2 class="section-title" style="font-size: 2.2rem;">Our Travels & Transport Fleet</h2>
+        <p class="section-subtitle">Providing luxury sedans, 7-seater family cruisers, commercial freight trucks, and heavy tractors.</p>
+      </div>
+
+      <div class="filter-pills-row" style="justify-content: flex-start;">
+        <button class="pill-btn active-green" data-vehicle-tab="all">All Vehicles (4)</button>
+        <button class="pill-btn" data-vehicle-tab="sedan">Luxury Sedans</button>
+        <button class="pill-btn" data-vehicle-tab="mpv">Family MPV</button>
+        <button class="pill-btn" data-vehicle-tab="truck">Commercial Truck</button>
+        <button class="pill-btn" data-vehicle-tab="tractor">Heavy Tractor</button>
+      </div>
+
+      <div class="vehicles-grid">
+        <div class="vehicle-card" data-category="sedan">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">LUXURY SEDAN</span>
+            <img src="assets/vehicles/sedan.jpg?v=3" alt="Swift Dzire White Sedan">
+          </div>
+          <div class="vehicle-content">
+            <h3 class="vehicle-name">Swift Dzire White Sedan</h3>
+            <p class="vehicle-specs">🚘 5-Seater Sedan | Climate Control AC | Outstation & City Cab Service</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹14 / km</span>
+                <span class="price-unit">PER DISTANCE</span>
+              </div>
+              <a href="#contact" data-close-modal class="btn-book-green">Book Now →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-card" data-category="mpv">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">FAMILY MPV</span>
+            <img src="assets/vehicles/mpv.jpg?v=3" alt="Maruti Ertiga White MPV">
+          </div>
+          <div class="vehicle-content">
+            <h3 class="vehicle-name">Maruti Ertiga White MPV</h3>
+            <p class="vehicle-specs">👥 7-Seater Family Cruiser | Dual Rear AC | Push-Button Start | Extra Boot Space</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹18 / km</span>
+                <span class="price-unit">PER DISTANCE</span>
+              </div>
+              <a href="#contact" data-close-modal class="btn-book-green">Book Now →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-card" data-category="truck">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">COMMERCIAL TRUCK</span>
+            <img src="assets/vehicles/truck.jpg?v=3" alt="Commercial Mini Goods Truck">
+          </div>
+          <div class="vehicle-content">
+            <h3 class="vehicle-name">Commercial Mini Goods Truck</h3>
+            <p class="vehicle-specs">📦 1.5 Ton Freight Payload | Enclosed Cage | Express Cargo & Relocation</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹25 / km</span>
+                <span class="price-unit">PER FREIGHT TRIP</span>
+              </div>
+              <a href="#contact" data-close-modal class="btn-book-green">Book Freight →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vehicle-card" data-category="tractor">
+          <div class="vehicle-image-wrapper">
+            <span class="vehicle-badge-tag">HEAVY TRACTOR</span>
+            <img src="assets/vehicles/tractor.jpg?v=3" alt="Agricultural Tractor">
+          </div>
+          <div class="vehicle-content">
+            <h3 class="vehicle-name">Agricultural Tractor</h3>
+            <p class="vehicle-specs">🚜 45 HP Heavy Duty Tractor | Multi-crop Tillage | Soil Preparation & Trailer Hauling</p>
+            <div class="vehicle-footer">
+              <div>
+                <span class="price-text">₹800 / hr</span>
+                <span class="price-unit">RENTAL RATE</span>
+              </div>
+              <a href="#contact" data-close-modal class="btn-book-green">Rent Tractor →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: CSC Services Popup -->
+  <div id="modal-csc" class="modal-overlay">
+    <div class="modal-container" style="max-width: 1000px;">
+      <button class="modal-close-btn" data-close-modal aria-label="Close popup">✕</button>
+      <div class="section-header" style="margin-bottom: 2rem; text-align: left;">
+        <span class="section-badge badge-purple">CSC DIGITAL CENTER</span>
+        <h2 class="section-title" style="font-size: 2.2rem;">Available Services & Document Checklist</h2>
+        <p class="section-subtitle">Explore government identity cards, revenue certificates, bill payments, and banking services with full document checklists.</p>
+      </div>
+
+      <div class="search-container" style="margin-bottom: 1.5rem;">
+        <input type="text" id="csc-search-input" class="search-input-box" placeholder="Search service (e.g. Aadhaar, Income Certificate, PAN)...">
+      </div>
+
+      <div class="filter-pills-row" style="justify-content: flex-start;">
+        <button class="pill-btn active-purple" data-csc-tab="all">All Services (6)</button>
+        <button class="pill-btn" data-csc-tab="govid">Government IDs</button>
+        <button class="pill-btn" data-csc-tab="certificates">Certificates</button>
+        <button class="pill-btn" data-csc-tab="banking">Banking & AEPS</button>
+        <button class="pill-btn" data-csc-tab="bills">Bills & Fastag</button>
+      </div>
+
+      <div class="csc-grid">
+        <div class="csc-card" data-category="govid" data-keywords="aadhaar pvc mobile update photo address">
+          <div class="csc-header">
+            <div class="csc-icon">💳</div>
+            <h3 class="csc-title">Aadhaar Card Services</h3>
+          </div>
+          <p class="csc-desc">Aadhaar enrollment, mobile number linking, biometric update & PVC card printing.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Original Proof of Identity (Voter ID / Driving License)</li>
+              <li>✓ Proof of Address (Ration Card / EB Bill)</li>
+              <li>✓ Applicant Mobile Number for OTP Verification</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="govid" data-keywords="pan nsdl uti e-pan photo dob name update">
+          <div class="csc-header">
+            <div class="csc-icon">💳</div>
+            <h3 class="csc-title">PAN Card (New & Correction)</h3>
+          </div>
+          <p class="csc-desc">Instant e-PAN generation, new NSDL/UTI PAN applications, and corrections.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Aadhaar Card copy (Name & DOB matching)</li>
+              <li>✓ 2 Passport Size Photographs</li>
+              <li>✓ Existing PAN Card copy (For corrections)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="certificates" data-keywords="income community nativity obc e-sevai certificate">
+          <div class="csc-header">
+            <div class="csc-icon">📦</div>
+            <h3 class="csc-title">Income & Community Certificates</h3>
+          </div>
+          <p class="csc-desc">Official Revenue e-Sevai certificates for Income, Community, Nativity & OBC status.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Smart Ration Card & Applicant Aadhaar Card</li>
+              <li>✓ Applicant Passport Size Photograph</li>
+              <li>✓ Self-Declaration Form & Parent Certificate</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="banking" data-keywords="banking aeps fingerprint mini atm cash withdrawal dmt">
+          <div class="csc-header">
+            <div class="csc-icon">🏦</div>
+            <h3 class="csc-title">Banking & AEPS Services</h3>
+          </div>
+          <p class="csc-desc">Aadhaar Enabled Payment System (AePS), fingerprint cash withdrawal & money transfer.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Aadhaar Linked Bank Account</li>
+              <li>✓ Biometric Fingerprint Authentication</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="bills" data-keywords="electricity eb bill tneb fastag recharge gas water">
+          <div class="csc-header">
+            <div class="csc-icon">⚡</div>
+            <h3 class="csc-title">Utility Bills & FASTag Recharge</h3>
+          </div>
+          <p class="csc-desc">Instant TNEB electricity bill payments, water tax, FASTag issuance & instant recharges.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Consumer Number / Vehicle Registration Number</li>
+              <li>✓ Instant Digital Receipt Printout</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="govid" data-keywords="passport driving license dl slot booking renewal">
+          <div class="csc-header">
+            <div class="csc-icon">🛂</div>
+            <h3 class="csc-title">Passport & Driving License</h3>
+          </div>
+          <p class="csc-desc">Passport online application submission, slot booking, and DL renewal prep.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Birth Certificate / SSLC Marksheet</li>
+              <li>✓ Aadhaar Card & Address Proof</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="brand-logo" style="justify-content: center; margin-bottom: 1rem;">
+        <div class="brand-badge">RJP</div>
+        <div class="brand-text">
+          <span class="brand-title">RJP GROUPS</span>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">Construction Engineering • Luxury Travels Fleet • CSC Digital Center</p>
+      <div>© 2026 RJP Groups. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom Navigation Bar -->
+  <div class="floating-bottom-nav">
+    <button class="floating-nav-item" data-open-modal="quote">🏗️ Build Quote</button>
+    <button class="floating-nav-item" data-open-modal="vehicles">🚗 Travels</button>
+    <button class="floating-nav-item" data-open-modal="csc">📦 CSC Services</button>
+    <a href="#contact" class="floating-nav-item">📞 Contact</a>
+  </div>
+
+  <!-- Floating WhatsApp Chat Button -->
+  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">💬</a>
+
+  <!-- Toast Notification -->
+  <div class="toast-container">
+    <div id="toast" class="toast">
+      <span>✓</span>
+      <span id="toast-message">Submission received successfully!</span>
+    </div>
+  </div>
+
+  <!-- Main JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>

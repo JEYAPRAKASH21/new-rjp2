@@ -1,0 +1,328 @@
+/* ==========================================================================
+   RJP GROUPS - Master JavaScript Engine
+   Scroll Animation Scrubber | Vertical One-by-One Blocks | Springy Modals
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const TOTAL_FRAMES = 300;
+  const images = [];
+  let loadedCount = 0;
+  
+  // Elements
+  const canvas = document.getElementById('scroll-canvas');
+  const heroContainer = document.getElementById('hero-scroll-container');
+  const preloader = document.getElementById('preloader');
+  const loaderBar = document.getElementById('loader-bar');
+  const loaderText = document.getElementById('loader-text');
+  const scrollIndicator = document.getElementById('scroll-indicator');
+  const navbar = document.getElementById('navbar');
+
+  let currentFrame = 0;
+  let targetFrame = 0;
+  let lastScrollY = window.scrollY;
+
+  function getFramePath(index) {
+    const frameNum = String(index + 1).padStart(3, '0');
+    return `assets/ezgif-frame-${frameNum}.jpg`;
+  }
+
+  // 1. Image Preloader & Canvas Engine
+  if (canvas && heroContainer) {
+    const ctx = canvas.getContext('2d');
+
+    function preloadImages() {
+      for (let i = 0; i < TOTAL_FRAMES; i++) {
+        const img = new Image();
+        img.src = getFramePath(i);
+        img.onload = () => {
+          loadedCount++;
+          const percent = Math.floor((loadedCount / TOTAL_FRAMES) * 100);
+          if (loaderBar) loaderBar.style.width = `${percent}%`;
+          if (loaderText) loaderText.textContent = `Loading RJP Experience... ${percent}%`;
+
+          if (i === 0) renderCanvasFrame(0);
+          if (loadedCount === TOTAL_FRAMES) onAllImagesLoaded();
+        };
+        img.onerror = () => {
+          loadedCount++;
+          if (loadedCount === TOTAL_FRAMES) onAllImagesLoaded();
+        };
+        images.push(img);
+      }
+    }
+
+    function onAllImagesLoaded() {
+      setTimeout(() => {
+        if (preloader) preloader.classList.add('hidden');
+      }, 300);
+    }
+
+    function renderCanvasFrame(index) {
+      const img = images[index];
+      if (!img || !img.complete) return;
+
+      const dpr = window.devicePixelRatio || 1;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+      }
+
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, width, height);
+
+      const imgRatio = img.width / img.height;
+      const canvasRatio = width / height;
+      let renderW, renderH, offsetX, offsetY;
+
+      if (canvasRatio > imgRatio) {
+        renderW = width;
+        renderH = width / imgRatio;
+        offsetX = 0;
+        offsetY = (height - renderH) / 2;
+      } else {
+        renderH = height;
+        renderW = height * imgRatio;
+        offsetX = (width - renderW) / 2;
+        offsetY = 0;
+      }
+
+      ctx.drawImage(img, offsetX, offsetY, renderW, renderH);
+      ctx.restore();
+    }
+
+    function updateScrollProgress() {
+      const rect = heroContainer.getBoundingClientRect();
+      const scrollableDistance = heroContainer.offsetHeight - window.innerHeight;
+
+      let scrollFraction = -rect.top / scrollableDistance;
+      scrollFraction = Math.max(0, Math.min(1, scrollFraction));
+
+      targetFrame = Math.floor(scrollFraction * (TOTAL_FRAMES - 1));
+      updateOverlayCards(scrollFraction);
+
+      if (scrollIndicator) {
+        scrollIndicator.style.opacity = scrollFraction > 0.02 ? '0' : '1';
+      }
+
+      // Auto-Hide Navbar on Scroll Down
+      const currentScrollY = window.scrollY;
+      if (navbar) {
+        if (currentScrollY > 80 && currentScrollY > lastScrollY) {
+          navbar.classList.add('nav-hidden');
+        } else {
+          navbar.classList.remove('nav-hidden');
+        }
+
+        if (currentScrollY > 80) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    function tick() {
+      currentFrame += (targetFrame - currentFrame) * 0.35;
+      renderCanvasFrame(Math.round(currentFrame));
+      requestAnimationFrame(tick);
+    }
+
+    function updateOverlayCards(fraction) {
+      toggleCard(document.getElementById('card-construction'), fraction >= 0.04 && fraction <= 0.26);
+      toggleCard(document.getElementById('card-travels'), fraction >= 0.28 && fraction <= 0.51);
+      toggleCard(document.getElementById('card-csc'), fraction >= 0.54 && fraction <= 0.76);
+    }
+
+    function toggleCard(cardElement, shouldShow) {
+      if (!cardElement) return;
+      if (shouldShow) cardElement.classList.add('visible');
+      else cardElement.classList.remove('visible');
+    }
+
+    window.addEventListener('resize', () => renderCanvasFrame(Math.round(currentFrame)));
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+    updateScrollProgress();
+    preloadImages();
+    tick();
+  }
+
+  // 2. Intersection Observer for Vertical One-by-One Blocks
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -60px 0px',
+    threshold: 0.15
+  };
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      } else {
+        entry.target.classList.remove('is-visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.anim-block-1, .anim-block-2, .anim-block-3, .stats-ticker-container, .contact-anim-header, .contact-card-anim-1, .contact-card-anim-2, .contact-card-anim-3, .contact-form-anim, .scroll-reveal').forEach(el => {
+    scrollObserver.observe(el);
+  });
+
+  // 3. Interactive Springy Glass Popup Modal System
+  function openModal(modalId) {
+    closeAllModals();
+    const modal = document.getElementById(`modal-${modalId}`);
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeAllModals() {
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.classList.remove('active');
+    });
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-open-modal]').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetModal = trigger.getAttribute('data-open-modal');
+      openModal(targetModal);
+    });
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach(closeBtn => {
+    closeBtn.addEventListener('click', closeAllModals);
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeAllModals();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllModals();
+  });
+
+  // 4. Vehicles Filtering System inside Modal
+  const vehicleTabs = document.querySelectorAll('[data-vehicle-tab]');
+  const vehicleCards = document.querySelectorAll('.vehicle-card');
+
+  vehicleTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      vehicleTabs.forEach(t => t.classList.remove('active-green'));
+      tab.classList.add('active-green');
+
+      const category = tab.getAttribute('data-vehicle-tab');
+
+      vehicleCards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => { card.style.display = 'none'; }, 200);
+        }
+      });
+    });
+  });
+
+  // 5. CSC Search & Category Filtering inside Modal
+  const cscSearchInput = document.getElementById('csc-search-input');
+  const cscTabs = document.querySelectorAll('[data-csc-tab]');
+  const cscCards = document.querySelectorAll('.csc-card');
+
+  if (cscSearchInput) {
+    cscSearchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+
+      cscCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const keywords = card.getAttribute('data-keywords') || '';
+
+        if (text.includes(query) || keywords.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  cscTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      cscTabs.forEach(t => t.classList.remove('active-purple'));
+      tab.classList.add('active-purple');
+
+      const category = tab.getAttribute('data-csc-tab');
+
+      cscCards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // 6. Toast Notification & Form Handlers
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toast-message');
+
+  function showToast(msg) {
+    if (!toast || !toastMessage) return;
+    toastMessage.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4000);
+  }
+
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Message submitted successfully! An RJP representative will reach out to you shortly.');
+      contactForm.reset();
+    });
+  }
+
+  const modalConstructionForm = document.getElementById('modal-construction-form');
+  if (modalConstructionForm) {
+    modalConstructionForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      closeAllModals();
+      showToast('Thank you! Your construction estimate request has been sent to RJP Groups.');
+      modalConstructionForm.reset();
+    });
+  }
+
+  // Mobile Menu Toggle
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        if (mobileToggle) mobileToggle.textContent = '☰';
+      });
+    });
+  }
+});

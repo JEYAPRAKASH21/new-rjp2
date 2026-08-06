@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RJP CSC Digital Center – Available Services & Document Checklist</title>
+  <meta name="description" content="Official e-Sevai CSC Center services for Aadhaar, PAN card, revenue certificates, banking, AePS, and bill payments with document checklists.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header id="navbar" class="navbar">
+    <a href="index.html" class="brand-logo">
+      <div class="brand-badge">RJP</div>
+      <div class="brand-text">
+        <span class="brand-title">RJP GROUPS</span>
+        <span class="brand-subtitle">CONSTRUCTION • TRAVELS • CSC</span>
+      </div>
+    </a>
+
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+    <ul id="nav-links" class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="quote.html" class="nav-link">Construction</a></li>
+      <li><a href="vehicles.html" class="nav-link">Travels</a></li>
+      <li><a href="csc.html" class="nav-link active">CSC Center</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Page Main Section -->
+  <main style="padding-top: 8rem; padding-bottom: 6rem;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge badge-purple">E-GOVERNANCE & DIGITAL SERVICES</span>
+        <h1 class="section-title">Available Services & <span style="color: var(--accent-purple);">Document Checklist</span></h1>
+        <p class="section-subtitle">Explore government identity cards, revenue certificates, bill payments, and banking services with full document requirement checklists.</p>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <input type="text" id="csc-search-input" class="search-input-box" placeholder="Search service (e.g. Aadhaar, Income Certificate, PAN)...">
+      </div>
+
+      <!-- Filter Pills Row -->
+      <div class="filter-pills-row">
+        <button class="pill-btn active-purple" data-csc-tab="all">All Services (6)</button>
+        <button class="pill-btn" data-csc-tab="govid">Government IDs</button>
+        <button class="pill-btn" data-csc-tab="certificates">Certificates</button>
+        <button class="pill-btn" data-csc-tab="banking">Banking & AEPS</button>
+        <button class="pill-btn" data-csc-tab="bills">Bills & Fastag</button>
+      </div>
+
+      <!-- CSC Services Grid -->
+      <div class="csc-grid">
+        <div class="csc-card" data-category="govid" data-keywords="aadhaar pvc mobile update photo address">
+          <div class="csc-header">
+            <div class="csc-icon">💳</div>
+            <h2 class="csc-title">Aadhaar Card Services</h2>
+          </div>
+          <p class="csc-desc">Aadhaar enrollment, mobile number linking, biometric update, address correction & color PVC card printing.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Original Proof of Identity (Voter ID / Driving License)</li>
+              <li>✓ Proof of Address (Ration Card / EB Bill)</li>
+              <li>✓ Applicant Mobile Number for OTP Verification</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="govid" data-keywords="pan nsdl uti e-pan photo dob name update">
+          <div class="csc-header">
+            <div class="csc-icon">💳</div>
+            <h2 class="csc-title">PAN Card (New & Correction)</h2>
+          </div>
+          <p class="csc-desc">Instant e-PAN generation, new NSDL/UTI PAN card applications, and name/DOB/photo corrections.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Aadhaar Card copy (Name & DOB matching)</li>
+              <li>✓ 2 Passport Size Photographs</li>
+              <li>✓ Existing PAN Card copy (For corrections)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="certificates" data-keywords="income community nativity obc e-sevai certificate">
+          <div class="csc-header">
+            <div class="csc-icon">📦</div>
+            <h2 class="csc-title">Income & Community Certificates</h2>
+          </div>
+          <p class="csc-desc">Official Revenue e-Sevai certificates for Income, Community, Nativity, OBC & First Graduate status.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Smart Ration Card & Applicant Aadhaar Card</li>
+              <li>✓ Applicant Passport Size Photograph</li>
+              <li>✓ Self-Declaration Form & Parent Certificate</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="banking" data-keywords="banking aeps fingerprint mini atm cash withdrawal dmt">
+          <div class="csc-header">
+            <div class="csc-icon">🏦</div>
+            <h2 class="csc-title">Banking & AEPS Services</h2>
+          </div>
+          <p class="csc-desc">Aadhaar Enabled Payment System (AePS), fingerprint cash withdrawal, mini ATM, and direct money transfer.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Aadhaar Linked Bank Account</li>
+              <li>✓ Biometric Fingerprint Authentication</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="bills" data-keywords="electricity eb bill tneb fastag recharge gas water">
+          <div class="csc-header">
+            <div class="csc-icon">⚡</div>
+            <h2 class="csc-title">Utility Bills & FASTag Recharge</h2>
+          </div>
+          <p class="csc-desc">Instant TNEB electricity bill payments, water tax, FASTag issuance & instant recharges.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Consumer Number / Vehicle Registration Number</li>
+              <li>✓ Instant Digital Receipt Printout</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="csc-card" data-category="govid" data-keywords="passport driving license dl slot booking renewal">
+          <div class="csc-header">
+            <div class="csc-icon">🛂</div>
+            <h2 class="csc-title">Passport & Driving License</h2>
+          </div>
+          <p class="csc-desc">Passport online application submission, appointment slot booking, and DL renewal document prep.</p>
+          <div class="checklist-box">
+            <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
+            <ul class="checklist-items">
+              <li>✓ Birth Certificate / SSLC Marksheet</li>
+              <li>✓ Aadhaar Card & Address Proof</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="brand-logo" style="justify-content: center; margin-bottom: 1rem;">
+        <div class="brand-badge">RJP</div>
+        <div class="brand-text">
+          <span class="brand-title">RJP GROUPS</span>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">Construction Engineering • Luxury Travels Fleet • CSC Digital Center</p>
+      <div>© 2026 RJP Groups. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom Navigation Bar -->
+  <div class="floating-bottom-nav">
+    <a href="quote.html" class="floating-nav-item">🏗️ Build Quote</a>
+    <a href="vehicles.html" class="floating-nav-item">🚗 Travels</a>
+    <a href="csc.html" class="floating-nav-item active">📦 CSC Services</a>
+    <a href="contact.html" class="floating-nav-item">📞 Contact</a>
+  </div>
+
+  <!-- WhatsApp Floating Chat Button -->
+  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">💬</a>
+
+  <script src="main.js"></script>
+</body>
+</html>
