@@ -232,24 +232,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. Vehicles Filtering System inside Modal
   const vehicleTabs = document.querySelectorAll('[data-vehicle-tab]');
   const vehicleCards = document.querySelectorAll('.vehicle-card');
+  const vehiclesGrid = document.querySelector('.vehicles-grid');
+
+  function filterVehicles(category) {
+    // Step 1: Instantly hide ALL cards
+    vehicleCards.forEach(card => {
+      card.style.display = 'none';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+    });
+
+    // Step 2: Find matching cards
+    const matching = Array.from(vehicleCards).filter(card =>
+      category === 'all' || card.getAttribute('data-category') === category
+    );
+
+    // Step 3: Toggle single-col if only 1 card matches
+    if (vehiclesGrid) {
+      vehiclesGrid.classList.toggle('single-col', matching.length === 1);
+    }
+
+    // Step 4: Show matching cards with staggered fade-in
+    matching.forEach((card, i) => {
+      card.style.display = 'flex';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 40 + i * 60);
+    });
+  }
 
   vehicleTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       vehicleTabs.forEach(t => t.classList.remove('active-green'));
       tab.classList.add('active-green');
-
-      const category = tab.getAttribute('data-vehicle-tab');
-
-      vehicleCards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(20px)';
-          setTimeout(() => { card.style.display = 'none'; }, 200);
-        }
-      });
+      filterVehicles(tab.getAttribute('data-vehicle-tab'));
     });
   });
 
