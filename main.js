@@ -61,18 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
       const img = images[index];
       if (!img || !img.complete) return;
 
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2x for performance
       const width = window.innerWidth;
       const height = window.innerHeight;
 
       if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
         canvas.width = width * dpr;
         canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
       }
 
       ctx.save();
       ctx.scale(dpr, dpr);
       ctx.clearRect(0, 0, width, height);
+
+      // Ultra-HD rendering settings
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
 
       const imgRatio = img.width / img.height;
       const canvasRatio = width / height;

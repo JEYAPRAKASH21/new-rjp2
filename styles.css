@@ -1616,46 +1616,198 @@ footer {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .contact-info-cards, .stats-ticker-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .form-grid-2 {
-    grid-template-columns: 1fr;
-  }
+/* ==========================================================
+   RESPONSIVE — COMPREHENSIVE MOBILE & TABLET SUPPORT
+   ========================================================== */
 
-  .navbar {
-    padding: 1rem 1.5rem;
-  }
+/* ── Smooth scrolling & touch improvements ── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
 
-  .mobile-toggle {
-    display: block;
-  }
+/* ── Canvas: crisp high-DPI rendering ── */
+#scroll-canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
 
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: rgba(13, 17, 26, 0.98);
-    backdrop-filter: blur(20px);
+/* ══════════════════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .container { padding: 0 2rem; }
+
+  .rich-division-card {
     flex-direction: column;
-    padding: 2rem;
+  }
+
+  .rich-card-banner {
+    width: 100%;
+    height: 240px;
+  }
+
+  .vehicles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-info-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .stats-ticker-container {
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    clip-path: circle(0% at 100% 0);
-    transition: clip-path 0.4s ease-in-out;
   }
 
-  .nav-links.active {
-    clip-path: circle(140% at 100% 0);
-  }
-
-  section {
-    padding: 4rem 1.5rem;
-  }
-
-  .section-title {
-    font-size: 2.2rem;
+  .modal-container {
+    padding: 2rem;
+    max-height: 90vh;
   }
 }
+
+/* ══════════════════════════════════════════
+   LARGE MOBILE / SMALL TABLET  (≤ 768px)
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar { padding: 1rem 1.2rem; }
+  .mobile-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(8, 10, 18, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 1.2rem;
+    clip-path: circle(0% at 100% 0);
+    transition: clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+  }
+  .nav-links.active { clip-path: circle(150% at 100% 0); }
+  .nav-link { font-size: 1.1rem; padding: 0.5rem 0; }
+
+  /* Hero cards */
+  .hero-overlay-card {
+    width: 90vw !important;
+    left: 5vw !important;
+    right: 5vw !important;
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  .card-title { font-size: 1.5rem; }
+  .card-desc  { font-size: 0.85rem; }
+  .btn-cta    { font-size: 0.85rem; padding: 0.65rem 1.3rem; }
+
+  /* Division scroll blocks */
+  .division-scroll-block { padding: 0 1rem; }
+  .rich-division-card { flex-direction: column; border-radius: 16px; }
+  .rich-card-banner { width: 100%; height: 200px; }
+  .rich-card-body   { padding: 1.4rem; }
+  .rich-card-title  { font-size: 1.4rem; }
+
+  /* Sections */
+  section { padding: 3rem 1.2rem; }
+  .container { padding: 0 1.2rem; }
+  .section-title    { font-size: 1.85rem; line-height: 1.25; }
+  .section-subtitle { font-size: 0.9rem; }
+
+  /* Stats */
+  .stats-ticker-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.8rem 1.2rem;
+    gap: 1.2rem;
+  }
+  .ticker-number { font-size: 2rem; }
+
+  /* Contact cards */
+  .contact-info-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .info-card-dark { padding: 1.8rem 1.5rem; }
+
+  /* Forms */
+  .form-grid-2 { grid-template-columns: 1fr; gap: 0; }
+  .dark-form-card { padding: 1.5rem; }
+
+  /* Modal */
+  .modal-overlay { padding: 1rem; align-items: flex-end; }
+  .modal-container {
+    padding: 1.8rem 1.2rem;
+    border-radius: 20px 20px 0 0;
+    max-height: 92vh;
+    width: 100%;
+    max-width: 100%;
+  }
+  .modal-close-btn { top: 1rem; right: 1rem; }
+
+  /* Vehicles modal */
+  .vehicles-grid { grid-template-columns: 1fr; }
+  .vehicles-grid.single-col { max-width: 100%; }
+  .filter-pills-row { flex-wrap: wrap; gap: 0.5rem; }
+  .pill-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+
+  /* CSC grid */
+  .csc-grid { grid-template-columns: 1fr; }
+  .search-input-box { font-size: 0.9rem; padding: 0.85rem 1.2rem; }
+
+  /* Footer */
+  footer { padding: 2rem 1.2rem; text-align: center; }
+
+  /* WhatsApp button */
+  .floating-chat-btn { width: 52px; height: 52px; font-size: 1.5rem; bottom: 1.2rem; right: 1.2rem; }
+  .floating-chat-btn::before { display: none; }
+}
+
+/* ══════════════════════════════════════════
+   SMALL MOBILE  (≤ 480px)
+══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  /* Branding */
+  .brand-title    { font-size: 1rem; }
+  .brand-subtitle { display: none; }
+  .brand-badge    { width: 34px; height: 34px; font-size: 0.85rem; }
+
+  /* Hero */
+  .card-title { font-size: 1.3rem; }
+  .card-desc  { font-size: 0.82rem; }
+
+  /* Sections */
+  .section-title { font-size: 1.6rem; }
+  .section-badge { font-size: 0.65rem; }
+
+  /* Stats */
+  .stats-ticker-container { grid-template-columns: repeat(2, 1fr); }
+  .ticker-number { font-size: 1.75rem; }
+  .ticker-label  { font-size: 0.7rem; }
+
+  /* Modal */
+  .modal-container { padding: 1.4rem 1rem; }
+  .modal-close-btn { width: 34px; height: 34px; font-size: 1.1rem; }
+
+  /* Vehicle cards */
+  .vehicle-image-wrapper { height: 160px; }
+  .vehicle-name { font-size: 1.05rem; }
+  .price-text   { font-size: 1.3rem; }
+
+  /* CSC */
+  .csc-title { font-size: 0.95rem; }
+  .csc-whatsapp-btn { font-size: 0.82rem; padding: 0.6rem 1rem; }
+
+  /* Contact */
+  .info-card-dark { padding: 1.4rem 1rem; }
+  .info-card-icon { width: 48px; height: 48px; font-size: 1.4rem; }
+  .info-card-title { font-size: 1.1rem; }
+
+  /* Forms */
+  .btn-gold-submit { font-size: 0.9rem; padding: 0.9rem; }
+
+  /* Preloader */
+  .loader-logo { font-size: 1.8rem; letter-spacing: 6px; }
+}
+
