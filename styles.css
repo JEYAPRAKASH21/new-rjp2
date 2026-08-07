@@ -1749,7 +1749,11 @@ html {
 
   /* Hero scroll container & Canvas fit on Mobile */
   .hero-scroll-container {
-    height: 240vh !important;
+    height: 200vh !important;
+  }
+  .sticky-wrapper {
+    align-items: flex-start !important;
+    justify-content: center !important;
   }
   #scroll-canvas {
     object-fit: contain !important;
@@ -1758,19 +1762,23 @@ html {
     width: 92vw !important;
     left: 4vw !important;
     right: 4vw !important;
-    top: 50% !important;
-    padding: 1.4rem 1.1rem !important;
+    top: calc(75px + 56.25vw + 12px) !important;
+    padding: 1.2rem 1.1rem !important;
     border-radius: 16px;
-    transform: translateY(-50%) scale(0.95);
+    transform: translateY(0) scale(0.96);
+    background: rgba(10, 14, 22, 0.75) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
   .hero-overlay-card.visible {
-    transform: translateY(-50%) scale(1) !important;
+    transform: translateY(0) scale(1) !important;
   }
   .hero-overlay-card.pos-left,
   .hero-overlay-card.pos-right {
     left: 4vw !important;
     right: 4vw !important;
-    top: 50% !important;
+    top: calc(75px + 56.25vw + 12px) !important;
   }
   .card-title { font-size: 1.5rem; }
   .card-desc  { font-size: 0.85rem; }

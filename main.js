@@ -86,12 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const canvasRatio = width / height;
       let renderW, renderH, offsetX, offsetY;
 
-      // On mobile or portrait orientation, fit 100% of image width so logo/text is NEVER cropped
+      // On mobile or portrait orientation, fit 100% of image width and align at top below navbar
       if (isMobile || canvasRatio < 1) {
         renderW = width;
         renderH = width / imgRatio;
         offsetX = 0;
-        offsetY = (height - renderH) / 2;
+        offsetY = isMobile ? Math.max(70, Math.min(85, height * 0.09)) : (height - renderH) / 2;
       } else {
         if (canvasRatio > imgRatio) {
           renderW = width;
