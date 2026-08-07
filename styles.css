@@ -39,105 +39,16 @@
 }
 
 /* ==========================================================================
-   ULTRA-RESPONSIVE ZERO-LAG PROFESSIONAL CURSOR
+   NATIVE HARDWARE-ACCELERATED CUSTOM COLOR CURSOR SYSTEM
+   (Zero Lag, 100% Native OS Speed, Custom Gold & Emerald Colors)
    ========================================================================== */
-@media (pointer: fine) {
-  body, a, button, input, select, textarea, [role="button"] {
-    cursor: none !important;
-  }
+
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4.5 3L19 11.5L12 13.5L8.5 20.5L4.5 3Z' fill='%230f141f' stroke='%23f59e0b' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M4.5 3L12 13.5' stroke='%23f59e0b' stroke-width='1.5'/%3E%3C/svg%3E") 4 3, auto;
 }
 
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 7px;
-  height: 7px;
-  background-color: var(--accent-gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  box-shadow: 0 0 10px var(--accent-gold);
-  transition: opacity 0.2s ease, transform 0.15s ease, background-color 0.2s ease;
-  will-change: transform;
-}
-
-.cursor-follower {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid rgba(245, 158, 11, 0.6);
-  background: rgba(245, 158, 11, 0.05);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.2s ease,
-              background-color 0.2s ease,
-              opacity 0.2s ease;
-  will-change: transform;
-}
-
-/* Hover state on interactive elements */
-.cursor-dot.hover {
-  transform: translate(-50%, -50%) scale(1.6) !important;
-  background-color: #ffffff;
-  box-shadow: 0 0 12px #ffffff;
-}
-
-.cursor-follower.hover {
-  width: 48px;
-  height: 48px;
-  border-color: rgba(245, 158, 11, 0.95);
-  background: rgba(245, 158, 11, 0.15);
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
-}
-
-/* Hidden when off-screen */
-.cursor-hidden {
-  opacity: 0 !important;
-}
-
-/* Click Ripple Ring */
-.cursor-ripple {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  border: 1.5px solid var(--accent-gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99997;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
-  will-change: transform, opacity;
-}
-
-.cursor-ripple.animate {
-  animation: cursorPulse 0.4s ease-out forwards;
-}
-
-@keyframes cursorPulse {
-  0% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1);
-    border-color: var(--accent-gold);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(5);
-    border-color: #10b981;
-  }
-}
-
-@media (pointer: coarse) {
-  .cursor-dot, .cursor-follower, .cursor-ripple {
-    display: none !important;
-  }
+a, button, input, select, textarea, label, [role="button"], [data-open-modal], .pill-btn, .btn-cta, .btn-rich-action, .info-card-dark, .vehicle-card, .csc-card, .modal-close-btn, .floating-chat-btn {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M3 3L10.07 19.97L13.58 12.58L20.97 9.07L3 3Z' fill='%2310b981' stroke='%23ffffff' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 3 3, pointer !important;
 }
 
 /* Bullet check color for list items */
