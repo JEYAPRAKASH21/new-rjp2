@@ -337,9 +337,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
-  // 0. Unique Custom Physics-Based Glowing Cursor Engine
+  // 0. Futuristic Cyber-Precision Orbit & Reticle Cursor Engine
   const cursorDot = document.getElementById('cursor-dot');
   const cursorFollower = document.getElementById('cursor-follower');
+  const cursorRipple = document.getElementById('cursor-ripple');
 
   if (cursorDot && cursorFollower && window.matchMedia('(pointer: fine)').matches) {
     let mouseX = -100, mouseY = -100;
@@ -348,12 +349,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) rotate(45deg)`;
     }, { passive: true });
 
     function updateCursorPhysics() {
-      followerX += (mouseX - followerX) * 0.18;
-      followerY += (mouseY - followerY) * 0.18;
+      followerX += (mouseX - followerX) * 0.16;
+      followerY += (mouseY - followerY) * 0.16;
       cursorFollower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
       requestAnimationFrame(updateCursorPhysics);
     }
@@ -375,14 +376,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    document.addEventListener('mousedown', () => {
-      cursorDot.classList.add('click');
-      cursorFollower.classList.add('click');
-    });
-
-    document.addEventListener('mouseup', () => {
-      cursorDot.classList.remove('click');
-      cursorFollower.classList.remove('click');
+    // Click Shockwave Ripple Effect
+    document.addEventListener('click', (e) => {
+      if (!cursorRipple) return;
+      cursorRipple.style.left = `${e.clientX}px`;
+      cursorRipple.style.top = `${e.clientY}px`;
+      cursorRipple.classList.remove('animate');
+      void cursorRipple.offsetWidth; // trigger reflow
+      cursorRipple.classList.add('animate');
     });
   }
 
