@@ -1195,7 +1195,51 @@ select.form-input-dark option {
   border: 1px solid rgba(139, 92, 246, 0.25);
   border-radius: var(--radius-md);
   padding: 1.2rem;
-  margin-top: auto;
+  margin-top: 0.5rem;
+}
+
+/* WhatsApp Get Help Button for CSC Cards */
+.csc-whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  padding: 0.75rem 1.2rem;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.csc-whatsapp-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.csc-whatsapp-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+  background: linear-gradient(135deg, #2be874, #1aaf72);
+}
+
+.csc-whatsapp-btn:hover::before {
+  opacity: 1;
+}
+
+.csc-whatsapp-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .checklist-title {
