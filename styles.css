@@ -981,27 +981,61 @@ select.form-input-dark option {
 }
 
 .pill-btn {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
   color: var(--text-muted);
-  padding: 0.7rem 1.5rem;
+  padding: 0.65rem 1.4rem;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pill-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  transition: background 0.25s ease;
 }
 
 .pill-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   color: #fff;
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-1px);
 }
 
+/* ── Active: GREEN (Travels modal) ── */
+@keyframes pillPulseGreen {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5);  }
+  50%       { box-shadow: 0 0 0 6px rgba(16,185,129,0); }
+}
 .pill-btn.active-green {
-  background: rgba(16, 185, 129, 0.2);
-  color: var(--accent-green);
+  background: linear-gradient(135deg, rgba(16,185,129,0.25), rgba(5,150,105,0.15));
+  color: #34d399;
   border-color: var(--accent-green);
-  box-shadow: 0 0 20px var(--accent-green-glow);
+  box-shadow: 0 0 18px rgba(16,185,129,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: pillPulseGreen 2s ease infinite;
+  transform: translateY(-1px);
+}
+
+/* ── Active: PURPLE (CSC modal) ── */
+@keyframes pillPulsePurple {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139,92,246,0.5);  }
+  50%       { box-shadow: 0 0 0 6px rgba(139,92,246,0); }
+}
+.pill-btn.active-purple {
+  background: linear-gradient(135deg, rgba(139,92,246,0.28), rgba(109,40,217,0.18));
+  color: #c4b5fd;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 18px rgba(139,92,246,0.45), inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: pillPulsePurple 2s ease infinite;
+  transform: translateY(-1px);
 }
 
 .vehicles-grid {
@@ -1344,6 +1378,7 @@ select.form-input-dark option {
   perspective: 1000px;
 }
 
+/* Contact Info Cards — Clickable with unique accent per type */
 .info-card-dark {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
@@ -1352,13 +1387,50 @@ select.form-input-dark option {
   text-align: center;
   box-shadow: var(--shadow-card);
   border: 1px solid var(--border-color);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
 }
 
-.info-card-dark:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent-gold);
+.info-card-dark::after {
+  content: '→';
+  position: absolute;
+  bottom: 1rem; right: 1.2rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
+/* Card 1 (Call): teal/green glow */
+.contact-card-anim-1:hover {
+  transform: translateY(-7px);
+  border-color: #10b981;
+  box-shadow: 0 12px 35px rgba(16,185,129,0.25);
+}
+.contact-card-anim-1:hover .info-card-icon { background: rgba(16,185,129,0.2); color: #10b981; box-shadow: 0 0 20px rgba(16,185,129,0.4); }
+.contact-card-anim-1:hover::after { color: #10b981; transform: translateX(4px); }
+
+/* Card 2 (Email): gold glow */
+.contact-card-anim-2:hover {
+  transform: translateY(-7px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 12px 35px rgba(245,158,11,0.25);
+}
+.contact-card-anim-2:hover .info-card-icon { background: rgba(245,158,11,0.2); color: var(--accent-gold); box-shadow: 0 0 20px rgba(245,158,11,0.4); }
+.contact-card-anim-2:hover::after { color: var(--accent-gold); transform: translateX(4px); }
+
+/* Card 3 (Map): blue glow */
+.contact-card-anim-3:hover {
+  transform: translateY(-7px);
+  border-color: #60a5fa;
+  box-shadow: 0 12px 35px rgba(96,165,250,0.25);
+}
+.contact-card-anim-3:hover .info-card-icon { background: rgba(96,165,250,0.2); color: #60a5fa; box-shadow: 0 0 20px rgba(96,165,250,0.4); }
+.contact-card-anim-3:hover::after { color: #60a5fa; transform: translateX(4px); }
 
 .info-card-icon {
   width: 58px;
@@ -1371,6 +1443,7 @@ select.form-input-dark option {
   justify-content: center;
   font-size: 1.6rem;
   margin: 0 auto 1.2rem auto;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card-title {
@@ -1384,6 +1457,7 @@ select.form-input-dark option {
   color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 600;
+  word-break: break-all;
 }
 
 /* Floating Bottom Navigation Bar */
@@ -1427,27 +1501,58 @@ select.form-input-dark option {
 }
 
 /* Floating WhatsApp / Chat Button */
+/* Floating WhatsApp Button with pulse ring */
+@keyframes waPulse {
+  0%   { box-shadow: 0 0 0 0   rgba(37,211,102,0.6), 0 10px 25px rgba(37,211,102,0.35); }
+  70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0),   0 10px 25px rgba(37,211,102,0.35); }
+  100% { box-shadow: 0 0 0 0   rgba(37,211,102,0),   0 10px 25px rgba(37,211,102,0.35); }
+}
+
 .floating-chat-btn {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 5.5rem;
   right: 1.5rem;
-  z-index: 1000;
-  width: 56px;
-  height: 56px;
-  background: var(--accent-green);
+  z-index: 1001;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #25d366, #128c7e);
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  box-shadow: 0 10px 25px var(--accent-green-glow);
+  font-size: 1.7rem;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  animation: waPulse 2.2s ease-out infinite;
+  transition: transform 0.22s ease;
+}
+
+.floating-chat-btn::before {
+  content: 'Chat on WhatsApp';
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10,12,20,0.92);
+  color: #25d366;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0.4rem 0.85rem;
+  border-radius: 50px;
+  border: 1px solid rgba(37,211,102,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0.3px;
 }
 
 .floating-chat-btn:hover {
   transform: scale(1.1);
+}
+
+.floating-chat-btn:hover::before {
+  opacity: 1;
 }
 
 /* Toast Message */
