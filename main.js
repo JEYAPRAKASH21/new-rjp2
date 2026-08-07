@@ -337,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
-  // 0. Futuristic Cyber-Precision Orbit & Reticle Cursor Engine
+  // 0. Ultra-Responsive Zero-Lag Professional Cursor Engine
   const cursorDot = document.getElementById('cursor-dot');
   const cursorFollower = document.getElementById('cursor-follower');
   const cursorRipple = document.getElementById('cursor-ripple');
@@ -346,43 +346,54 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouseX = -100, mouseY = -100;
     let followerX = -100, followerY = -100;
 
+    // Instant 1-to-1 position tracking for dot (0ms latency)
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) rotate(45deg)`;
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+      cursorDot.classList.remove('cursor-hidden');
+      cursorFollower.classList.remove('cursor-hidden');
     }, { passive: true });
 
+    // High-responsiveness fluid lerp for follower ring
     function updateCursorPhysics() {
-      followerX += (mouseX - followerX) * 0.16;
-      followerY += (mouseY - followerY) * 0.16;
+      followerX += (mouseX - followerX) * 0.35;
+      followerY += (mouseY - followerY) * 0.35;
       cursorFollower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
       requestAnimationFrame(updateCursorPhysics);
     }
     requestAnimationFrame(updateCursorPhysics);
 
-    const hoverSelectors = 'a, button, input, select, textarea, [data-open-modal], .info-card-dark, .vehicle-card, .csc-card, .pill-btn, .btn-cta, .btn-rich-action, .modal-close-btn';
+    // Hide cursor when leaving window
+    document.addEventListener('mouseleave', () => {
+      cursorDot.classList.add('cursor-hidden');
+      cursorFollower.classList.add('cursor-hidden');
+    });
+
+    // Hover detection using efficient mouseover
+    const hoverTargets = 'a, button, input, select, textarea, [data-open-modal], .info-card-dark, .vehicle-card, .csc-card, .pill-btn, .btn-cta, .btn-rich-action, .modal-close-btn';
 
     document.addEventListener('mouseover', (e) => {
-      if (e.target.closest(hoverSelectors)) {
+      if (e.target.closest(hoverTargets)) {
         cursorDot.classList.add('hover');
         cursorFollower.classList.add('hover');
       }
     });
 
     document.addEventListener('mouseout', (e) => {
-      if (e.target.closest(hoverSelectors)) {
+      if (e.target.closest(hoverTargets)) {
         cursorDot.classList.remove('hover');
         cursorFollower.classList.remove('hover');
       }
     });
 
-    // Click Shockwave Ripple Effect
+    // Click Ripple Effect
     document.addEventListener('click', (e) => {
       if (!cursorRipple) return;
       cursorRipple.style.left = `${e.clientX}px`;
       cursorRipple.style.top = `${e.clientY}px`;
       cursorRipple.classList.remove('animate');
-      void cursorRipple.offsetWidth; // trigger reflow
+      void cursorRipple.offsetWidth;
       cursorRipple.classList.add('animate');
     });
   }
