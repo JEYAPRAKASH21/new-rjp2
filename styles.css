@@ -605,48 +605,58 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   DISTINCT SCROLL ANIMATION 1: 3D SLIDE & FLIP FROM LEFT
+   SCROLL ANIMATION 1: POWER SLIDE FROM LEFT + 3D FLIP
+   Triggers every time card enters/leaves viewport
    -------------------------------------------------------------------------- */
 .anim-block-1 {
   opacity: 0;
-  transform: translateX(-120px) rotateY(-20deg) scale(0.85);
-  transition: opacity 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateX(-150px) rotateY(-25deg) rotateZ(-3deg) scale(0.82);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+  filter: blur(4px);
 }
 .anim-block-1.is-visible {
   opacity: 1;
-  transform: translateX(0) rotateY(0deg) scale(1);
+  transform: translateX(0) rotateY(0deg) rotateZ(0deg) scale(1);
+  filter: blur(0);
 }
 
 /* --------------------------------------------------------------------------
-   DISTINCT SCROLL ANIMATION 2: SPRING SCALE ZOOM FROM CENTER
+   SCROLL ANIMATION 2: SPRING ZOOM + BOUNCE FROM BOTTOM
    -------------------------------------------------------------------------- */
 .anim-block-2 {
   opacity: 0;
-  transform: translateY(100px) scale(0.72);
-  transition: opacity 0.65s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateY(130px) scale(0.65) rotateX(12deg);
+  transition: opacity 0.75s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
   will-change: opacity, transform;
+  filter: blur(4px);
 }
 .anim-block-2.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0) scale(1) rotateX(0deg);
+  filter: blur(0);
 }
 
 /* --------------------------------------------------------------------------
-   DISTINCT SCROLL ANIMATION 3: 3D SLIDE & FLIP FROM RIGHT
+   SCROLL ANIMATION 3: POWER SLIDE FROM RIGHT + 3D FLIP (CSC Center)
    -------------------------------------------------------------------------- */
 .anim-block-3 {
   opacity: 0;
-  transform: translateX(120px) rotateY(20deg) scale(0.85);
-  transition: opacity 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: translateX(150px) rotateY(25deg) rotateZ(3deg) scale(0.82);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
+  filter: blur(4px);
 }
 .anim-block-3.is-visible {
   opacity: 1;
-  transform: translateX(0) rotateY(0deg) scale(1);
+  transform: translateX(0) rotateY(0deg) rotateZ(0deg) scale(1);
+  filter: blur(0);
 }
 
-/* Stats Ticker Animation */
+/* Stats Ticker — Fade + Rise animation */
 .stats-ticker-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -659,13 +669,13 @@ body {
   margin-top: 2rem;
   box-shadow: var(--shadow-card);
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(50px) scale(0.96);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s;
 }
 
 .stats-ticker-container.is-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .ticker-box {
