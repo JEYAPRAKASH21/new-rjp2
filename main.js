@@ -276,7 +276,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Toast Notification & Form Handlers
+  // 6. WhatsApp Redirect Helper
+  const WA_NUMBER = '917358656647';
+
+  function openWhatsApp(message) {
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  // Toast Notification
   const toast = document.getElementById('toast');
   const toastMessage = document.getElementById('toast-message');
 
@@ -289,21 +297,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
+  // Contact Form → WhatsApp
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('Message submitted successfully! An RJP representative will reach out to you shortly.');
+      const name    = document.getElementById('user-name').value.trim();
+      const phone   = document.getElementById('user-phone').value.trim();
+      const service = document.getElementById('user-service');
+      const serviceText = service.options[service.selectedIndex]?.text || 'General Inquiry';
+      const message = document.getElementById('user-message').value.trim();
+
+      const waMsg =
+        `Hello RJP Groups! 👋\n\n` +
+        `*Name:* ${name}\n` +
+        `*Phone:* ${phone}\n` +
+        `*Service Interested:* ${serviceText}\n` +
+        `*Message:* ${message}\n\n` +
+        `Please get back to me at your earliest convenience. Thank you!`;
+
+      openWhatsApp(waMsg);
       contactForm.reset();
     });
   }
 
+  // Construction Estimate Form → WhatsApp
   const modalConstructionForm = document.getElementById('modal-construction-form');
   if (modalConstructionForm) {
     modalConstructionForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name     = document.getElementById('m-full-name').value.trim();
+      const mobile   = document.getElementById('m-mobile-number').value.trim();
+      const catEl    = document.getElementById('m-project-category');
+      const category = catEl.options[catEl.selectedIndex]?.text || '';
+      const budgetEl = document.getElementById('m-budget-range');
+      const budget   = budgetEl.options[budgetEl.selectedIndex]?.text || '';
+      const location = document.getElementById('m-site-location').value.trim();
+      const details  = document.getElementById('m-project-requirements').value.trim();
+
+      const waMsg =
+        `Hello RJP Construction! 🏗️ I'd like a *Free Construction Estimate*.\n\n` +
+        `*Name:* ${name}\n` +
+        `*Mobile:* ${mobile}\n` +
+        `*Project Type:* ${category}\n` +
+        `*Budget Range:* ${budget}\n` +
+        `*Site Location:* ${location}\n` +
+        `*Requirements:* ${details}\n\n` +
+        `Kindly provide a detailed quote. Thank you!`;
+
       closeAllModals();
-      showToast('Thank you! Your construction estimate request has been sent to RJP Groups.');
+      openWhatsApp(waMsg);
       modalConstructionForm.reset();
     });
   }
