@@ -724,10 +724,11 @@ body {
 
 .contact-card-anim-1 {
   opacity: 0;
-  transform: translateX(-40px) translateY(25px) scale(0.94);
-  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  transition-delay: 0.08s;
+  transform: translateX(-50px) translateY(30px) scale(0.92);
+  transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1) 0.05s,
+              transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.05s;
   will-change: opacity, transform;
+  pointer-events: auto;
 }
 .contact-card-anim-1.is-visible {
   opacity: 1;
@@ -736,10 +737,11 @@ body {
 
 .contact-card-anim-2 {
   opacity: 0;
-  transform: translateY(35px) scale(0.9);
-  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  transition-delay: 0.18s;
+  transform: translateY(50px) scale(0.88);
+  transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1) 0.15s,
+              transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.15s;
   will-change: opacity, transform;
+  pointer-events: auto;
 }
 .contact-card-anim-2.is-visible {
   opacity: 1;
@@ -748,10 +750,11 @@ body {
 
 .contact-card-anim-3 {
   opacity: 0;
-  transform: translateX(40px) translateY(25px) scale(0.94);
-  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  transition-delay: 0.28s;
+  transform: translateX(50px) translateY(30px) scale(0.92);
+  transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s,
+              transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s;
   will-change: opacity, transform;
+  pointer-events: auto;
 }
 .contact-card-anim-3.is-visible {
   opacity: 1;

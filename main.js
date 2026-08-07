@@ -170,8 +170,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.anim-block-1, .anim-block-2, .anim-block-3, .stats-ticker-container, .contact-anim-header, .contact-card-anim-1, .contact-card-anim-2, .contact-card-anim-3, .contact-form-anim, .scroll-reveal').forEach(el => {
+  const animatedEls = document.querySelectorAll('.anim-block-1, .anim-block-2, .anim-block-3, .stats-ticker-container, .contact-anim-header, .contact-card-anim-1, .contact-card-anim-2, .contact-card-anim-3, .contact-form-anim, .scroll-reveal');
+
+  animatedEls.forEach(el => {
     scrollObserver.observe(el);
+    // Immediately show if already in viewport on load
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add('is-visible');
+    }
   });
 
   // 3. Interactive Springy Glass Popup Modal System
