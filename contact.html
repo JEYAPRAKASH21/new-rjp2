@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact RJP Group – Get In Touch</title>
-  <meta name="description" content="Contact RJP Group for Construction estimates, Travels vehicle bookings, and CSC Center document processing in Ramanathapuram.">
+  <title>Contact RJP Groups – Get In Touch</title>
+  <meta name="description" content="Contact RJP Groups for Muthu Construction estimates, Travels vehicle bookings, and Dhiyashini CSC Center document processing in Ramanathapuram.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Custom Luxury Glowing Cursor -->
+  <div id="cursor-dot" class="cursor-dot"></div>
+  <div id="cursor-follower" class="cursor-follower"></div>
 
   <!-- Site Header -->
   <header id="navbar" class="navbar">
@@ -22,13 +26,15 @@
       </div>
     </a>
 
-    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">
+      <span class="hamburger-icon"><span></span><span></span><span></span></span>
+    </button>
 
     <ul id="nav-links" class="nav-links">
       <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="quote.html" class="nav-link">Construction</a></li>
+      <li><a href="quote.html" class="nav-link">Muthu Construction</a></li>
       <li><a href="vehicles.html" class="nav-link">Travels</a></li>
-      <li><a href="csc.html" class="nav-link">CSC Center</a></li>
+      <li><a href="csc.html" class="nav-link">Dhiyashini CSC Center</a></li>
       <li><a href="contact.html" class="nav-link active">Contact</a></li>
     </ul>
   </header>
@@ -44,54 +50,60 @@
 
       <!-- 3 Info Cards -->
       <div class="contact-info-cards">
-        <div class="info-card-dark">
-          <div class="info-card-icon">📞</div>
+        <a href="tel:+917358656647" class="info-card-dark" aria-label="Call Us">
+          <div class="info-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
           <h2 class="info-card-title">Call Us</h2>
-          <div class="info-card-text">+91 7358656647</div>
-        </div>
+          <div class="info-card-text">+91 73586 56647</div>
+        </a>
 
-        <div class="info-card-dark">
-          <div class="info-card-icon">✉️</div>
+        <a href="mailto:jeyaprakashp342@gmail.com" class="info-card-dark" aria-label="Email Us">
+          <div class="info-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
           <h2 class="info-card-title">Email Us</h2>
           <div class="info-card-text">jeyaprakashp342@gmail.com</div>
-        </div>
+        </a>
 
-        <div class="info-card-dark">
-          <div class="info-card-icon">📍</div>
+        <a href="https://maps.google.com/?q=Madasamy+Kovil+Street,+Therbogi,+Ramanathapuram,+Tamil+Nadu" target="_blank" rel="noopener" class="info-card-dark" aria-label="Visit Us">
+          <div class="info-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
           <h2 class="info-card-title">Visit Us</h2>
           <div class="info-card-text">Madasamy Kovil Street, Therbogi, Ramanathapuram</div>
-        </div>
+        </a>
       </div>
 
       <!-- Contact Form -->
       <div class="dark-form-card">
-        <form id="contact-page-form">
+        <form id="contact-form">
           <div class="form-grid-2">
             <div class="form-group-dark">
-              <label for="contact-user-name">Your Name</label>
-              <input type="text" id="contact-user-name" class="form-input-dark" placeholder="Enter your full name" required>
+              <label for="user-name">Your Name</label>
+              <input type="text" id="user-name" class="form-input-dark" placeholder="Enter your full name" required>
             </div>
 
             <div class="form-group-dark">
-              <label for="contact-user-phone">Phone Number</label>
-              <input type="tel" id="contact-user-phone" class="form-input-dark" placeholder="+91 XXXXX XXXXX" required>
+              <label for="user-phone">Phone Number</label>
+              <input type="tel" id="user-phone" class="form-input-dark" placeholder="+91 XXXXX XXXXX" required>
             </div>
           </div>
 
           <div class="form-group-dark">
-            <label for="contact-user-service">Which Service Are You Interested In?</label>
-            <select id="contact-user-service" class="form-input-dark" required>
+            <label for="user-service">Which Service Are You Interested In?</label>
+            <select id="user-service" class="form-input-dark" required>
               <option value="" disabled selected>Select a service</option>
-              <option value="construction">🏗️ RJP Construction Estimate</option>
-              <option value="travels">🚗 RJP Travels Fleet Booking</option>
-              <option value="csc">📦 RJP CSC Government & Document Services</option>
-              <option value="general">✨ General Inquiry</option>
+              <option value="construction">Muthu Construction Estimate</option>
+              <option value="travels">RJP Travels Fleet Booking</option>
+              <option value="csc">Dhiyashini CSC Government &amp; Document Services</option>
+              <option value="general">General Inquiry</option>
             </select>
           </div>
 
           <div class="form-group-dark">
-            <label for="contact-user-message">Message</label>
-            <textarea id="contact-user-message" class="form-input-dark" style="min-height: 120px; resize: vertical;" placeholder="Tell us about your requirement..." required></textarea>
+            <label for="user-message">Message</label>
+            <textarea id="user-message" class="form-input-dark" style="min-height: 120px; resize: vertical;" placeholder="Tell us about your requirements..." required></textarea>
           </div>
 
           <button type="submit" class="btn-gold-submit">Submit Inquiry</button>
@@ -109,30 +121,25 @@
           <span class="brand-title">RJP GROUPS</span>
         </div>
       </div>
-      <p style="margin-bottom: 1.5rem;">Construction Engineering • Luxury Travels Fleet • CSC Digital Center</p>
+      <p style="margin-bottom: 1.5rem;">Muthu Construction • Luxury Travels • Dhiyashini CSC Center</p>
       <div>© 2026 RJP Groups. All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- Floating Bottom Navigation Bar -->
-  <div class="floating-bottom-nav">
-    <a href="quote.html" class="floating-nav-item">🏗️ Build Quote</a>
-    <a href="vehicles.html" class="floating-nav-item">🚗 Travels</a>
-    <a href="csc.html" class="floating-nav-item">📦 CSC Services</a>
-    <a href="contact.html" class="floating-nav-item active">📞 Contact</a>
-  </div>
-
   <!-- WhatsApp Floating Chat Button -->
-  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">💬</a>
+  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
 
   <!-- Toast Notification -->
   <div class="toast-container">
     <div id="toast" class="toast">
-      <span>✓</span>
-      <span id="toast-message">Message submitted successfully!</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span id="toast-message">Submission received successfully!</span>
     </div>
   </div>
 
+  <!-- Main JavaScript -->
   <script src="main.js"></script>
 </body>
 </html>

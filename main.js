@@ -337,6 +337,55 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
+  // 0. Unique Custom Physics-Based Glowing Cursor Engine
+  const cursorDot = document.getElementById('cursor-dot');
+  const cursorFollower = document.getElementById('cursor-follower');
+
+  if (cursorDot && cursorFollower && window.matchMedia('(pointer: fine)').matches) {
+    let mouseX = -100, mouseY = -100;
+    let followerX = -100, followerY = -100;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+    }, { passive: true });
+
+    function updateCursorPhysics() {
+      followerX += (mouseX - followerX) * 0.18;
+      followerY += (mouseY - followerY) * 0.18;
+      cursorFollower.style.transform = `translate3d(${followerX}px, ${followerY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(updateCursorPhysics);
+    }
+    requestAnimationFrame(updateCursorPhysics);
+
+    const hoverSelectors = 'a, button, input, select, textarea, [data-open-modal], .info-card-dark, .vehicle-card, .csc-card, .pill-btn, .btn-cta, .btn-rich-action, .modal-close-btn';
+
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverSelectors)) {
+        cursorDot.classList.add('hover');
+        cursorFollower.classList.add('hover');
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverSelectors)) {
+        cursorDot.classList.remove('hover');
+        cursorFollower.classList.remove('hover');
+      }
+    });
+
+    document.addEventListener('mousedown', () => {
+      cursorDot.classList.add('click');
+      cursorFollower.classList.add('click');
+    });
+
+    document.addEventListener('mouseup', () => {
+      cursorDot.classList.remove('click');
+      cursorFollower.classList.remove('click');
+    });
+  }
+
   // Contact Form → WhatsApp
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -349,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('user-message').value.trim();
 
       const waMsg =
-        `Hello RJP Groups! 👋\n\n` +
+        `Hello RJP Groups!\n\n` +
         `*Name:* ${name}\n` +
         `*Phone:* ${phone}\n` +
         `*Service Interested:* ${serviceText}\n` +
@@ -376,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const details  = document.getElementById('m-project-requirements').value.trim();
 
       const waMsg =
-        `Hello RJP Construction! 🏗️ I'd like a *Free Construction Estimate*.\n\n` +
+        `Hello Muthu Construction! I would like a *Free Construction Estimate*.\n\n` +
         `*Name:* ${name}\n` +
         `*Mobile:* ${mobile}\n` +
         `*Project Type:* ${category}\n` +
@@ -398,13 +447,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileToggle && navLinks) {
     mobileToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-      mobileToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+      mobileToggle.classList.toggle('active');
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
-        if (mobileToggle) mobileToggle.textContent = '☰';
+        mobileToggle.classList.remove('active');
       });
     });
   }

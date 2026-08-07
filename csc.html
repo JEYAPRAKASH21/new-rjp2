@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RJP CSC Digital Center – Available Services & Document Checklist</title>
-  <meta name="description" content="Official e-Sevai CSC Center services for Aadhaar, PAN card, revenue certificates, banking, AePS, and bill payments with document checklists.">
+  <title>Dhiyashini CSC Center – Available Services & Document Checklist</title>
+  <meta name="description" content="Official e-Sevai Dhiyashini CSC Center services for Aadhaar, PAN card, revenue certificates, banking, AePS, and bill payments with document checklists.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Custom Luxury Glowing Cursor -->
+  <div id="cursor-dot" class="cursor-dot"></div>
+  <div id="cursor-follower" class="cursor-follower"></div>
 
   <!-- Site Header -->
   <header id="navbar" class="navbar">
@@ -22,13 +26,15 @@
       </div>
     </a>
 
-    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation">
+      <span class="hamburger-icon"><span></span><span></span><span></span></span>
+    </button>
 
     <ul id="nav-links" class="nav-links">
       <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="quote.html" class="nav-link">Construction</a></li>
+      <li><a href="quote.html" class="nav-link">Muthu Construction</a></li>
       <li><a href="vehicles.html" class="nav-link">Travels</a></li>
-      <li><a href="csc.html" class="nav-link active">CSC Center</a></li>
+      <li><a href="csc.html" class="nav-link active">Dhiyashini CSC Center</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
   </header>
@@ -37,8 +43,8 @@
   <main style="padding-top: 8rem; padding-bottom: 6rem;">
     <div class="container">
       <div class="section-header">
-        <span class="section-badge badge-purple">E-GOVERNANCE & DIGITAL SERVICES</span>
-        <h1 class="section-title">Available Services & <span style="color: var(--accent-purple);">Document Checklist</span></h1>
+        <span class="section-badge badge-purple">DHIYASHINI CSC CENTER</span>
+        <h1 class="section-title">Available Services &amp; <span style="color: var(--accent-purple);">Document Checklist</span></h1>
         <p class="section-subtitle">Explore government identity cards, revenue certificates, bill payments, and banking services with full document requirement checklists.</p>
       </div>
 
@@ -52,101 +58,113 @@
         <button class="pill-btn active-purple" data-csc-tab="all">All Services (6)</button>
         <button class="pill-btn" data-csc-tab="govid">Government IDs</button>
         <button class="pill-btn" data-csc-tab="certificates">Certificates</button>
-        <button class="pill-btn" data-csc-tab="banking">Banking & AEPS</button>
-        <button class="pill-btn" data-csc-tab="bills">Bills & Fastag</button>
+        <button class="pill-btn" data-csc-tab="banking">Banking &amp; AEPS</button>
+        <button class="pill-btn" data-csc-tab="bills">Bills &amp; Fastag</button>
       </div>
 
       <!-- CSC Services Grid -->
       <div class="csc-grid">
         <div class="csc-card" data-category="govid" data-keywords="aadhaar pvc mobile update photo address">
           <div class="csc-header">
-            <div class="csc-icon">💳</div>
+            <div class="csc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            </div>
             <h2 class="csc-title">Aadhaar Card Services</h2>
           </div>
-          <p class="csc-desc">Aadhaar enrollment, mobile number linking, biometric update, address correction & color PVC card printing.</p>
+          <p class="csc-desc">Aadhaar enrollment, mobile number linking, biometric update, address correction &amp; color PVC card printing.</p>
           <div class="checklist-box">
             <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
             <ul class="checklist-items">
-              <li>✓ Original Proof of Identity (Voter ID / Driving License)</li>
-              <li>✓ Proof of Address (Ration Card / EB Bill)</li>
-              <li>✓ Applicant Mobile Number for OTP Verification</li>
+              <li><span class="bullet-check">&bull;</span> Original Proof of Identity (Voter ID / Driving License)</li>
+              <li><span class="bullet-check">&bull;</span> Proof of Address (Ration Card / EB Bill)</li>
+              <li><span class="bullet-check">&bull;</span> Applicant Mobile Number for OTP Verification</li>
             </ul>
           </div>
         </div>
 
         <div class="csc-card" data-category="govid" data-keywords="pan nsdl uti e-pan photo dob name update">
           <div class="csc-header">
-            <div class="csc-icon">💳</div>
-            <h2 class="csc-title">PAN Card (New & Correction)</h2>
+            <div class="csc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <h2 class="csc-title">PAN Card (New &amp; Correction)</h2>
           </div>
           <p class="csc-desc">Instant e-PAN generation, new NSDL/UTI PAN card applications, and name/DOB/photo corrections.</p>
           <div class="checklist-box">
             <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
             <ul class="checklist-items">
-              <li>✓ Aadhaar Card copy (Name & DOB matching)</li>
-              <li>✓ 2 Passport Size Photographs</li>
-              <li>✓ Existing PAN Card copy (For corrections)</li>
+              <li><span class="bullet-check">&bull;</span> Aadhaar Card copy (Name &amp; DOB matching)</li>
+              <li><span class="bullet-check">&bull;</span> 2 Passport Size Photographs</li>
+              <li><span class="bullet-check">&bull;</span> Existing PAN Card copy (For corrections)</li>
             </ul>
           </div>
         </div>
 
         <div class="csc-card" data-category="certificates" data-keywords="income community nativity obc e-sevai certificate">
           <div class="csc-header">
-            <div class="csc-icon">📦</div>
-            <h2 class="csc-title">Income & Community Certificates</h2>
+            <div class="csc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h2 class="csc-title">Income &amp; Community Certificates</h2>
           </div>
-          <p class="csc-desc">Official Revenue e-Sevai certificates for Income, Community, Nativity, OBC & First Graduate status.</p>
+          <p class="csc-desc">Official Revenue e-Sevai certificates for Income, Community, Nativity, OBC &amp; First Graduate status.</p>
           <div class="checklist-box">
             <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
             <ul class="checklist-items">
-              <li>✓ Smart Ration Card & Applicant Aadhaar Card</li>
-              <li>✓ Applicant Passport Size Photograph</li>
-              <li>✓ Self-Declaration Form & Parent Certificate</li>
+              <li><span class="bullet-check">&bull;</span> Smart Ration Card &amp; Applicant Aadhaar Card</li>
+              <li><span class="bullet-check">&bull;</span> Applicant Passport Size Photograph</li>
+              <li><span class="bullet-check">&bull;</span> Self-Declaration Form &amp; Parent Certificate</li>
             </ul>
           </div>
         </div>
 
         <div class="csc-card" data-category="banking" data-keywords="banking aeps fingerprint mini atm cash withdrawal dmt">
           <div class="csc-header">
-            <div class="csc-icon">🏦</div>
-            <h2 class="csc-title">Banking & AEPS Services</h2>
+            <div class="csc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h2 class="csc-title">Banking &amp; AEPS Services</h2>
           </div>
           <p class="csc-desc">Aadhaar Enabled Payment System (AePS), fingerprint cash withdrawal, mini ATM, and direct money transfer.</p>
           <div class="checklist-box">
             <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
             <ul class="checklist-items">
-              <li>✓ Aadhaar Linked Bank Account</li>
-              <li>✓ Biometric Fingerprint Authentication</li>
+              <li><span class="bullet-check">&bull;</span> Aadhaar Linked Bank Account</li>
+              <li><span class="bullet-check">&bull;</span> Biometric Fingerprint Authentication</li>
             </ul>
           </div>
         </div>
 
         <div class="csc-card" data-category="bills" data-keywords="electricity eb bill tneb fastag recharge gas water">
           <div class="csc-header">
-            <div class="csc-icon">⚡</div>
-            <h2 class="csc-title">Utility Bills & FASTag Recharge</h2>
+            <div class="csc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <h2 class="csc-title">Utility Bills &amp; FASTag Recharge</h2>
           </div>
-          <p class="csc-desc">Instant TNEB electricity bill payments, water tax, FASTag issuance & instant recharges.</p>
+          <p class="csc-desc">Instant TNEB electricity bill payments, water tax, FASTag issuance &amp; instant recharges.</p>
           <div class="checklist-box">
             <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
             <ul class="checklist-items">
-              <li>✓ Consumer Number / Vehicle Registration Number</li>
-              <li>✓ Instant Digital Receipt Printout</li>
+              <li><span class="bullet-check">&bull;</span> Consumer Number / Vehicle Registration Number</li>
+              <li><span class="bullet-check">&bull;</span> Instant Digital Receipt Printout</li>
             </ul>
           </div>
         </div>
 
         <div class="csc-card" data-category="govid" data-keywords="passport driving license dl slot booking renewal">
           <div class="csc-header">
-            <div class="csc-icon">🛂</div>
-            <h2 class="csc-title">Passport & Driving License</h2>
+            <div class="csc-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
+            <h2 class="csc-title">Passport &amp; Driving License</h2>
           </div>
           <p class="csc-desc">Passport online application submission, appointment slot booking, and DL renewal document prep.</p>
           <div class="checklist-box">
             <div class="checklist-title">REQUIRED DOCUMENTS CHECKLIST</div>
             <ul class="checklist-items">
-              <li>✓ Birth Certificate / SSLC Marksheet</li>
-              <li>✓ Aadhaar Card & Address Proof</li>
+              <li><span class="bullet-check">&bull;</span> Birth Certificate / SSLC Marksheet</li>
+              <li><span class="bullet-check">&bull;</span> Aadhaar Card &amp; Address Proof</li>
             </ul>
           </div>
         </div>
@@ -163,21 +181,15 @@
           <span class="brand-title">RJP GROUPS</span>
         </div>
       </div>
-      <p style="margin-bottom: 1.5rem;">Construction Engineering • Luxury Travels Fleet • CSC Digital Center</p>
+      <p style="margin-bottom: 1.5rem;">Muthu Construction • Luxury Travels • Dhiyashini CSC Center</p>
       <div>© 2026 RJP Groups. All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- Floating Bottom Navigation Bar -->
-  <div class="floating-bottom-nav">
-    <a href="quote.html" class="floating-nav-item">🏗️ Build Quote</a>
-    <a href="vehicles.html" class="floating-nav-item">🚗 Travels</a>
-    <a href="csc.html" class="floating-nav-item active">📦 CSC Services</a>
-    <a href="contact.html" class="floating-nav-item">📞 Contact</a>
-  </div>
-
   <!-- WhatsApp Floating Chat Button -->
-  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">💬</a>
+  <a href="https://wa.me/917358656647" target="_blank" class="floating-chat-btn" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  </a>
 
   <script src="main.js"></script>
 </body>
