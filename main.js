@@ -57,11 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 300);
     }
 
+    let lastRenderedFrame = -1;
+
     function renderCanvasFrame(index) {
       const img = images[index];
       if (!img || !img.complete) return;
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2x for performance
+      const isMobile = window.innerWidth <= 768;
+      const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
       const width = window.innerWidth;
       const height = window.innerHeight;
 
@@ -76,33 +79,43 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.scale(dpr, dpr);
       ctx.clearRect(0, 0, width, height);
 
-      // Ultra-HD rendering settings
       ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
+      ctx.imageSmoothingQuality = isMobile ? 'medium' : 'high';
 
       const imgRatio = img.width / img.height;
       const canvasRatio = width / height;
       let renderW, renderH, offsetX, offsetY;
 
-      if (canvasRatio > imgRatio) {
+      // On mobile or portrait orientation, fit 100% of image width so logo/text is NEVER cropped
+      if (isMobile || canvasRatio < 1) {
         renderW = width;
         renderH = width / imgRatio;
         offsetX = 0;
         offsetY = (height - renderH) / 2;
       } else {
-        renderH = height;
-        renderW = height * imgRatio;
-        offsetX = (width - renderW) / 2;
-        offsetY = 0;
+        if (canvasRatio > imgRatio) {
+          renderW = width;
+          renderH = width / imgRatio;
+          offsetX = 0;
+          offsetY = (height - renderH) / 2;
+        } else {
+          renderH = height;
+          renderW = height * imgRatio;
+          offsetX = (width - renderW) / 2;
+          offsetY = 0;
+        }
       }
 
       ctx.drawImage(img, offsetX, offsetY, renderW, renderH);
       ctx.restore();
+      lastRenderedFrame = index;
     }
 
     function updateScrollProgress() {
       const rect = heroContainer.getBoundingClientRect();
       const scrollableDistance = heroContainer.offsetHeight - window.innerHeight;
+
+      if (scrollableDistance <= 0) return;
 
       let scrollFraction = -rect.top / scrollableDistance;
       scrollFraction = Math.max(0, Math.min(1, scrollFraction));
@@ -134,15 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function tick() {
-      currentFrame += (targetFrame - currentFrame) * 0.35;
-      renderCanvasFrame(Math.round(currentFrame));
+      const lerpSpeed = window.innerWidth <= 768 ? 0.45 : 0.35;
+      currentFrame += (targetFrame - currentFrame) * lerpSpeed;
+      const roundedFrame = Math.round(currentFrame);
+
+      if (roundedFrame !== lastRenderedFrame) {
+        renderCanvasFrame(roundedFrame);
+      }
       requestAnimationFrame(tick);
     }
 
     function updateOverlayCards(fraction) {
-      toggleCard(document.getElementById('card-construction'), fraction >= 0.04 && fraction <= 0.26);
-      toggleCard(document.getElementById('card-travels'), fraction >= 0.28 && fraction <= 0.51);
-      toggleCard(document.getElementById('card-csc'), fraction >= 0.54 && fraction <= 0.76);
+      toggleCard(document.getElementById('card-construction'), fraction >= 0.04 && fraction <= 0.28);
+      toggleCard(document.getElementById('card-travels'), fraction >= 0.32 && fraction <= 0.58);
+      toggleCard(document.getElementById('card-csc'), fraction >= 0.62 && fraction <= 0.88);
     }
 
     function toggleCard(cardElement, shouldShow) {
@@ -151,7 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
       else cardElement.classList.remove('visible');
     }
 
-    window.addEventListener('resize', () => renderCanvasFrame(Math.round(currentFrame)));
+    window.addEventListener('resize', () => {
+      lastRenderedFrame = -1;
+      renderCanvasFrame(Math.round(currentFrame));
+    });
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
     updateScrollProgress();

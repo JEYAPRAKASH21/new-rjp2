@@ -1747,21 +1747,46 @@ html {
   .nav-links.active { clip-path: circle(150% at 100% 0); }
   .nav-link { font-size: 1.1rem; padding: 0.5rem 0; }
 
-  /* Hero cards */
+  /* Hero scroll container & Canvas fit on Mobile */
+  .hero-scroll-container {
+    height: 240vh !important;
+  }
+  #scroll-canvas {
+    object-fit: contain !important;
+  }
   .hero-overlay-card {
-    width: 90vw !important;
-    left: 5vw !important;
-    right: 5vw !important;
-    padding: 1.5rem;
+    width: 92vw !important;
+    left: 4vw !important;
+    right: 4vw !important;
+    top: 50% !important;
+    padding: 1.4rem 1.1rem !important;
     border-radius: 16px;
+    transform: translateY(-50%) scale(0.95);
+  }
+  .hero-overlay-card.visible {
+    transform: translateY(-50%) scale(1) !important;
+  }
+  .hero-overlay-card.pos-left,
+  .hero-overlay-card.pos-right {
+    left: 4vw !important;
+    right: 4vw !important;
+    top: 50% !important;
   }
   .card-title { font-size: 1.5rem; }
   .card-desc  { font-size: 0.85rem; }
   .btn-cta    { font-size: 0.85rem; padding: 0.65rem 1.3rem; }
 
-  /* Division scroll blocks */
-  .division-scroll-block { padding: 0 1rem; }
-  .rich-division-card { flex-direction: column; border-radius: 16px; }
+  /* Division scroll blocks & spacing */
+  #divisions-overview {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .division-scroll-block {
+    min-height: auto !important;
+    padding: 1.2rem 1rem !important;
+    perspective: none !important;
+  }
+  .rich-division-card { flex-direction: column; border-radius: 16px; transform: none !important; }
   .rich-card-banner { width: 100%; height: 200px; }
   .rich-card-body   { padding: 1.4rem; }
   .rich-card-title  { font-size: 1.4rem; }
