@@ -181,6 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modal) {
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      // Re-trigger staggered card animations on each open
+      if (modalId === 'csc') {
+        document.querySelectorAll('.csc-card').forEach(card => {
+          card.style.animation = 'none';
+          card.offsetHeight; // reflow
+          card.style.animation = '';
+        });
+      }
     }
   }
 
