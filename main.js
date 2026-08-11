@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderW = width;
         renderH = width / imgRatio;
         offsetX = 0;
-        offsetY = isMobile ? Math.max(70, Math.min(85, height * 0.09)) : (height - renderH) / 2;
+        offsetY = isMobile ? 58 : (height - renderH) / 2;
       } else {
         if (canvasRatio > imgRatio) {
           renderW = width;
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function tick() {
-      const lerpSpeed = window.innerWidth <= 768 ? 0.45 : 0.35;
+      const lerpSpeed = window.innerWidth <= 768 ? 0.88 : 0.70;
       currentFrame += (targetFrame - currentFrame) * lerpSpeed;
       const roundedFrame = Math.round(currentFrame);
 
@@ -158,9 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateOverlayCards(fraction) {
-      toggleCard(document.getElementById('card-construction'), fraction >= 0.04 && fraction <= 0.28);
-      toggleCard(document.getElementById('card-travels'), fraction >= 0.32 && fraction <= 0.58);
-      toggleCard(document.getElementById('card-csc'), fraction >= 0.62 && fraction <= 0.88);
+      toggleCard(document.getElementById('card-construction'), fraction >= 0.02 && fraction <= 0.30);
+      toggleCard(document.getElementById('card-travels'), fraction >= 0.32 && fraction <= 0.62);
+      toggleCard(document.getElementById('card-csc'), fraction >= 0.64 && fraction <= 0.95);
     }
 
     function toggleCard(cardElement, shouldShow) {
