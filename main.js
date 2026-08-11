@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function tick() {
-      const lerpSpeed = window.innerWidth <= 768 ? 0.88 : 0.70;
+      const lerpSpeed = window.innerWidth <= 768 ? 0.18 : 0.22;
       currentFrame += (targetFrame - currentFrame) * lerpSpeed;
       const roundedFrame = Math.round(currentFrame);
 

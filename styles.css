@@ -1742,7 +1742,7 @@ html {
 
   /* Hero scroll container & Canvas fit on Mobile */
   .hero-scroll-container {
-    height: 125vh !important;
+    height: 220vh !important;
   }
   .sticky-wrapper {
     align-items: flex-start !important;
@@ -1781,8 +1781,9 @@ html {
 
   /* Division scroll blocks & spacing */
   #divisions-overview {
-    padding-top: 0.5rem !important;
-    padding-bottom: 1.5rem !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    padding-bottom: 1rem !important;
   }
   .division-scroll-block {
     min-height: auto !important;
@@ -1857,7 +1858,7 @@ html {
 ══════════════════════════════════════════ */
 @media (max-width: 480px) {
   .hero-scroll-container {
-    height: 115vh !important;
+    height: 200vh !important;
   }
   .hero-overlay-card {
     top: calc(54px + 56.25vw + 4px) !important;
